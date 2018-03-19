@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SouthAlive.Models.Venue>
+@inject UserManager<ApplicationUser> UserManager
+@functions{
+    private string timeText(TimeSpan time)
+    {
+        int hour = time.Hours;
+        int minute = time.Minutes;
+        string ext = "AM";
+        if (hour > 12) { hour -= 12; ext = "PM"; }
+        else if (hour == 12) { ext = "PM"; }
+        if (minute == 0) { ext = "00 " + ext; }
+        else { ext = minute + " " + ext; }
+        return hour + ":" + ext;
+    }
+}
+<div class="container">
+    <h5 class="grey darken-2 z-depth-1-half center white-text" style="padding:20px;margin-bottom:20px;">Approve Bookings</h5>
+    @if (ViewBag.VenueBooking != null)
+    {
+        <table class="striped highlight">
+            <thead>
+                <tr>
+                    <td><b>Venue</b></td>
+                    <td><b>Event</b></td>
+                    <td><b>Name</b></td>
+                    <td><b>Time</b></td>
+                    <td><b>State</b></td>
+                </tr>
+            </thead>
+
+            @foreach (VenueBooking book in ViewBag.VenueBooking)
+            {
+                if (!book.IsApproved)
+                {
+                    ApplicationUser use = await UserManager.FindByIdAsync(book.UserId);
+
+                    <tr>
+                        <td>@book.Venue.VenueName</td>
+                        <td>@book.EventName</td>
+                        <td>@use.FirstName @use.LastName</td>
+                        <td>@use.PhoneNumber</td>
+                        <td>@book.Day/@book.Month/@book.Year @timeText(book.StartTime)-@timeText(book.EndTime)</td>
+                        <td>
+                            <a class="btn green" href="/Venue/ConfirmBooking?id=@book.VenueBookingId">
+                                Approve
+                            </a>
+                         
+                            <a class="btn red">
+                                Decline
+                            </a>
+                        </td>
+                    </tr>
+
+                }
+            }
+
+        </table>
+
+    }
+</div>

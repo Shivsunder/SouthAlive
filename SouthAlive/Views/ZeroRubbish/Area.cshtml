@@ -1,0 +1,19 @@
+﻿@model IEnumerable<SouthAlive.Models.coordinateConstraint>
+@{
+    List<coordinateConstraint> cc = Model.ToList();
+}
+<script type="text/javascript" src="~/Scripts/maparea.js"></script>
+<script>
+    X1 = @cc[0].X1
+    Y1 = @cc[0].Y1
+    X2 = @cc[0].X2
+    Y2 = @cc[0].Y2
+
+    aX1 = @cc[0].X1
+    aY1 = @cc[0].Y1
+    aX2 = @cc[0].X2
+    aY2 = @cc[0].Y2
+</script>
+
+<div class="col-lg-9 col-md-11 z-depth-2" id="map" style="height:480px;margin:5px;"></div>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxWZ7IyrkpV6g-5UQ90gnQDa_cu3v8Dac&callback=initMap"></script>

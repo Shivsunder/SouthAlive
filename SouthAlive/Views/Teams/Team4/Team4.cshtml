@@ -1,0 +1,152 @@
+﻿@inject UserManager<ApplicationUser> userManager
+
+@section Styles{
+    <style>
+        .teamManager {
+            margin-top: 0;
+        }
+
+            .teamManager i {
+                position: relative;
+                top: 5px;
+            }
+
+        .team-img {
+            width: 100%;
+            height: auto;
+        }
+
+        #team1-Container > div:first-child > h3 {
+            padding: 20px 0;
+        }
+
+        #team1-Container ul {
+            margin-left: 10px;
+        }
+
+        .Bread {
+            margin-bottom: 0;
+        }
+    </style>
+}
+
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="/teams" class="breadcrumb">TEAMS</a>
+            <span class="breadcrumb">TEAM 4</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container" id="team1-Container">
+    <div>
+        <h3 class="center white-text blue lighten-2">Team: Art</h3>
+    </div>
+
+    <div>
+        <img class="team-img" src="~/images/Teams/c8ba31d0-48ad-494f-86f0-cf74fb5a9cac_main.jpg" />
+
+        <br />
+        <h5><b>Convenor:</b> Janette Malcolm</h5>
+        <h5><b>Email:</b> southalive@gmail.com</h5>
+        <h5><b>Telephone:</b> 218 6688</h5>
+
+        <br />
+        <h5>Purpose:</h5>
+        <ul class="browser-default">
+            <li>We have established a <b>Community Art Space</b> in the shop opposite the South Alive office at the rear entrance to the mall</li>
+            <li>The Community Art Space has two separate areas - a Gallery and an Arts Hub
+                <br />
+                <ol type="a">
+                    <li><b>The Gallery</b> is available for exhibitions of all kinds of art, from as many different groups as possible.</li>
+                    <li><b>The Arts Hub</b> is available for art and craft workshops and courses/classes, demonstrations, possibly other kinds of courses as well, music groups and small concerts and community meetings.</li>
+                    <li>Create a stimulating and creative hub in south Invercargill that strengthens residents’ connection to their community</li>
+                    <li>Encourage local emerging and established artists by providing a venue to exhibit, perform anddisplay their work</li>
+                    <li>Provide the south Invercargill community (and beyond) with a space promoting local artistic and cultural activities as well as other activities as space and time allows</li>
+                </ol>
+            </li>
+        </ul>
+        <br />
+        <h5>The activities of the Artspace will therefore include:</h5>
+        <ul class="browser-default">
+            <li>Exhibitions</li>
+            <li>Art and Craft Workshops and courses, possibly other kinds of courses as well e.g. music</li>
+            <li>Artist-in-residence. Host a working artist from time to time, so the public can watch artwork, including sculpture, being created</li>
+            <li>Other kind of exhibitions and courses e.g. health and wellbeing</li>
+            <li>Venue for small community group meetings</li>
+        </ul>
+        <br />
+
+        <h5>What we have done to date</h5>
+        <ul class="browser-default">
+            <li>The group first fitted out a gallery / arts space in an empty shop on Elles Road, where they held six art classes for adults, five for children and five art exhibitions before shifting to its permanent home in the shop opposite the South Alive office</li>
+            <li>Since August 2014 the group has been working on the fit out of the new premises. The Gallery was finished in time for the first exhibition in October 2014 - an exhibition of the work of 21 South Invercargill Artists. The Hub was completed in March 2015.</li>
+            <li>The gallery is available to hire at $50 per week and the Hub at $10 for up to two hours or $20 per day. See venue pages for further information.</li>
+        </ul>
+        <br />
+        <h5>Forward Plans</h5>
+        <ul class="browser-default">
+            <li>Lots more exhibitions and art/craft courses of all kinds</li>
+            <li>Develop and grow a 'Friends of the Gallery' group that will help market and mind the gallery during exhibitions.</li>
+            <li>Development of an artist-in-residence programme.</li>
+            <li>Develop and implement a marketing programme for the Gallery and Hub.</li>
+        </ul>
+        <br />
+        <h5>Current volunteer opportunities for the Arts Team</h5>
+            <table class="bordered highlight striped">
+                <thead>
+                    <tr>
+                        <td><b>Task</b></td>
+                        <td><b>Commitment</b></td>
+                        <td><b>What's Involved?</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Join our Action Team - You don't need to be an artist or crafter. People interested in the arts, people who are good organisers, or who just want to lend a hand are welcome.</td>
+                        <td>Attend meetings – about once every two weeks when planning an exhibition and then once a month. Meetings usually in the evenings starting at 5.30pm on a night to suit.</td>
+                        <td>Planning, organising</td>
+                    </tr>
+                    <tr>
+                        <td>Advertising and promotion. Marketing and social media skills.</td>
+                        <td>Up to two hours per week.</td>
+                        <td>Planning and implementing a plan to advertise and promote the Artspace.</td>
+                    </tr>
+                    <tr>
+                        <td>Working bees.</td>
+                        <td>Whatever time you can spare when we call for help.</td>
+                        <td>Usually cleaning and other tasks relating to fit-out adn keeping the place clean and maintained, including windows washed regularly.</td>
+                    </tr>
+                    <tr>
+                        <td>Opening nights assistance</td>
+                        <td>A few hours on opening nights</td>
+                        <td>Helping to meet and greet, serve food and drinks</td>
+                    </tr>
+                    <tr>
+                        <td>Making labels and signage, catalogue assistance</td>
+                        <td>Perhaps a few hours before an exhibition opens</td>
+                        <td>Varies. Could be making labels/signs for exhibits, designing a catalogue etc. Design skills helpful</td>
+                    </tr>
+                    <tr>
+                        <td>Minding/staffing the exhibition space during opening hours</td>
+                        <td>Probably 2 to 4 hours on a day you choose.</td>
+                        <td>Dealing with inquiries, making sure people get information, arranging sales</td>
+                    </tr>
+                    <tr>
+                        <td>Workshop helpers</td>
+                        <td>Up to 3 hours for a 2 hour workshop</td>
+                        <td>Assisting the tutor with set-up, and pack-up.</td>
+                    </tr>
+                    <tr>
+                        <td>Exhibition assistance.</td>
+                        <td>1 hour to 1 day when exhibitions are being changed over.</td>
+                        <td>Helping to take down and pack up an exhibition, clean space, and help to put up next exhibition</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+</div>
+</div>
+

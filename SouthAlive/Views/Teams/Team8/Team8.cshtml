@@ -1,0 +1,107 @@
+﻿@inject UserManager<ApplicationUser> userManager
+
+@section Styles{
+    <style>
+        .teamManager {
+            margin-top: 0;
+        }
+
+            .teamManager i {
+                position: relative;
+                top: 5px;
+            }
+
+        .team-img {
+            width: 100%;
+            height: auto;
+        }
+
+        #team1-Container > div:first-child > h3 {
+            padding: 20px 0;
+        }
+
+        #team1-Container ul {
+            margin-left: 10px;
+        }
+
+        .Bread {
+            margin-bottom: 0;
+        }
+    </style>
+}
+
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="/teams" class="breadcrumb">TEAMS</a>
+            <span class="breadcrumb">TEAM 7</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container" id="team1-Container">
+    <div>
+        <h3 class="center white-text orange darken-3">Team: Marketing & Events</h3>
+    </div>
+
+    <div>
+        <img class="team-img" src="~/images/Teams/65ac77e5-c89b-43fc-aae1-26e17e741c7f_main.jpg" />
+
+        <br />
+        <h5><b>Convenor:</b> Contact South Alive office</h5>
+        <h5><b>Email:</b> southalive@gmail.com</h5>
+        <h5><b>Telephone:</b> 218 6882</h5>
+
+        <br />
+        <h5>Purpose:</h5>
+        <ol>
+            <li>1. Communicate and publicise the objectives and projects of South Alive and all its Action Teams.</li>
+            <li>Develop or assist events and projects which promote community identification and local pride</li>
+        </ol>
+        <br />
+        <h5>What have we done?</h5>
+        <ul class="browser-default">
+            <li>Developed the South Alive name / logo</li>
+            <li>Produced a monthly newsletter since June 2012 (11 issues per year)</li>
+            <li>Developed a website and Facebook page</li>
+            <li>A yellow ‘South Alive’ letterbox moves around businesses in South Invercargill. It has information about South Alive and a sign-up registration form which can be ‘posted’ in the box</li>
+            <li>Other signage include a tear drop banner, leaflets, high viz vests etc.</li>
+            <li>Regular news and TV stories about South Alive projects and events</li>
+            <li>Organised South Alive public meetings, openings and launches</li>
+            <li>Summer Sounds concert at the South Alive Community Park in February 2014 and 2015</li>
+        </ul>
+        <br />
+        <h5>What have we done?</h5>
+        <ul class="browser-default">
+            <li>Develop a South Invercargill trail guide to visit unique places of interest in South Invercargill</li>
+            <li>Identify new ways to promote South Alive and identify our projects</li>
+            <li>Organise more concerts in the summer including regular use of the stage in the community park</li>
+        </ul>
+        <br />
+        <h5>Current volunteer opportunities for Events & Marketing</h5>
+        <table class="bordered highlight striped">
+            <thead>
+                <tr>
+                    <td><b>Task</b></td>
+                    <td><b>Commitment</b></td>
+                    <td><b>What's Involved?</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Promotions/marketing</td>
+                    <td>As per individual availability</td>
+                    <td>Coming up with, and implement, ideas for getting more people, in all the age groups, aware of South Alive and it’s projects</td>
+                </tr>
+                <tr>
+                    <td>Event Organising</td>
+                    <td>Per event</td>
+                    <td>Willingness to help organise events Ideas for events</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </div>
+</div>
+

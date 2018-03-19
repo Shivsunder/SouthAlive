@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SouthAlive.Models.Polyline>
+@{
+    List<Polyline> lines = Model.ToList();
+    lines.Sort();
+    List<string> keys = new List<string>();
+    Dictionary<string, List<Polyline>> plines = new Dictionary<string, List<Polyline>>();
+    foreach (Polyline l in lines)
+    {
+        string phone = "";
+        if (l.LineInfo != null)
+        {
+            phone = l.LineInfo.PhoneNumber;
+        }
+        phone = new string(phone.Where(char.IsDigit).ToArray());
+        if (!plines.ContainsKey(phone))
+        {
+            plines.Add(phone, new List<Polyline>());
+        }
+        plines[phone].Add(l);
+    }
+}
+
+<div class="container">
+    <div class="col">
+        <h5 class="orange darken-2 white-text center z-depth-1-half" style="padding:20px;">Zero Rubbish List</h5>
+    </div>
+    <div class="col m10">
+
+        @if (plines != null)
+        {
+            <table class="highlight striped">
+                <thead>
+                    <tr>
+                        <td>Name</td>
+                        <td>Contact</td>
+                        <td>Street</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (KeyValuePair<string, List<Polyline>> kp in plines)
+                {
+
+                        @foreach (Polyline l in kp.Value)
+                    {
+                        string name = "";
+                        string phone = "";
+                        if (l.LineInfo != null) { name = l.LineInfo.Name; phone = l.LineInfo.PhoneNumber; }
+                        string str = l.Dslc;
+                            <tr>
+                                <td>@name</td>
+                                <td>@phone</td>
+                                <td>Last checked: @str</td>
+                            </tr>
+                        }
+
+
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

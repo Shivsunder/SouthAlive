@@ -1,0 +1,16 @@
+@model SouthAlive.Models.SampleEditor.Editor
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="container">
+    <h4 class="center">@Html.DisplayFor(model => model.Title)</h4>
+    <hr />
+    @Html.Raw(Model.Content)
+</div>
+<div class="container right">
+    <a asp-action="Edit" asp-route-id="@Model.EditorId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

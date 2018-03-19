@@ -1,0 +1,144 @@
+﻿@inject UserManager<ApplicationUser> userManager
+
+@section Styles{
+    <style>
+        .teamManager {
+            margin-top: 0;
+        }
+
+            .teamManager i {
+                position: relative;
+                top: 5px;
+            }
+
+        .team-img {
+            width: 100%;
+            height: auto;
+        }
+
+        #team1-Container > div:first-child > h3 {
+            padding: 20px 0;
+        }
+
+        #team1-Container ul {
+            margin-left: 10px;
+        }
+
+        .Bread {
+            margin-bottom: 0;
+        }
+    </style>
+}
+
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="/teams" class="breadcrumb">TEAMS</a>
+            <span class="breadcrumb">TEAM 2</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container" id="team1-Container">
+    <div>
+        <h3 class="center white-text orange">Team: South City Shopping Area</h3>
+    </div>
+
+    <div>
+        <img class="team-img" src="~/images/Teams/southcitybanner.jpg" />
+
+        <br /><br />
+        <h5>Convenor:</h5>
+        <p>Robyn Hickman, (South Alive Chair), tel 211 60403</p>
+        <p>Janette Malcolm, South Alive Co-ordinator, jjmalcolm@clutha.net tel: 218 6688</p>
+
+        <h4>Purpose:</h4>
+        <p>The South City Shopping Area Action Group is now run by the South Alive Board of Trustees due to the size and complexity of its main projects. The overall purpose of the project is to transform the Shopping Area into one that South Invercargill residents are proud of, and which meets their needs.</p>
+    
+        <h5>What we have done</h5>
+        <br />
+        <ul class="browser-default">
+            <li>Initially, lots of rubbish clean-ups. Especially in the mall car-park, and the vacant land at the back of the mall</li>
+            <li>South City shopping area was one of the highest priorities from the first public meeting in 2012. People wanted things to be different. So we did research with different groups, including businesses, children and youth, and residents. The main things people said were:</li>
+            <li>We really like most of the shops we have (supermarket, post office, chemist, doctor etc)</li>
+            <li>but we want more amenity value so we can better use the area – e.g. seating and areas where we can watch our kids play, or just sit and watch in a social setting</li>
+            <li>We want a lot more colour and planting</li>
+            <li>South Alive has used this information, and help from a designer, to come up with a master plan for the transformation of South City shopping area which includes street changes to Martin Street and Elles Road, mall improvements, a community park, sculpture and possibly, in the future, a community hub building</li>
+            <li>The Community Park is being developed at the rear of the mall with new fencing, 18 community garden boxes, a half basketball court, grassed area, large performance stage and outdoor fitness gym.</li>
+            <li>We have achieved upgrades to the mall through developing a partnership with the mall owners, including: seating, removing kiosk, installing hanging baskets, organising painting of the car park lines and disabled spaces, fixing and cleaning mall lights inside and floodlights outside, replanting the gardens at each mall carpark entrance, fixing the broken carpark sign at the north entrance, replacement of the back automatic door and painting of ironwork on Elles Road</li>
+            <li>We have run a $100,000 national competition for a sculpture to be constructed on the corner of Elles Road and Dalrymple Street – with funding from a private donor - Cliff Broad. The winner David Truebridge was announced in March 2015 with the sculpture to be installed by July 2015.</li>
+            <li>A Community Artspace and Hub has been established in South City Mall. It will show art exhibitions, provide arts and other courses for the public. The Hub can be used by community groups for meetings, workshops etc. Contact South Alive office for further details or check out the venues page.</li>
+        </ul>
+        <br />
+        <h5>Forward plans</h5>
+        <br />
+        <ul class="browser-default">
+            <li>Continue involvement in road changes to Elles Road and Martin Street. Final concept plans were presented on the 28th May 2014 and the work is expected to be completed by August 2015..</li>
+            <li>Finish stage one of the community park. This includes finishing the floor of the outdoor gym and a bit more fencing, a mural on the east wall of Bin Inn, installing an automatic watering system for the community garden and putting in a drinking fountain and additional tap.</li>
+            <li>Begin stage two of the park - ways to get a wind shelter along Ness Street</li>
+            <li>Continue efforts to get upgrades to commercial buildings in South City</li>
+            <li>In May 2015, the Mall owners announced a $250,000 upgrade. This work includes interior and exterior facelift, some new roofing, cleaning all the distinctive glasswork, new retailers in the empty shops, and an upgrade to the existing toilets including the addition of a parenting room.</li>
+        </ul>
+        <br />
+        <h5>Current volunteer opportunities for the South City team & South Alive</h5>
+        <br />
+        <table class="striped highlight responsive-table">
+            <thead>
+                <tr>
+                    <td><b>Task</b></td>
+                    <td><b>Commitment</b></td>
+                    <td><b>What's Involved?</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cutting grass in community park</td>
+                    <td>
+                        Probably 1 -2 hours per time. Could volunteer for a roster, rather than every time
+                    </td>
+                    <td>Cutting grass on mound and flat areas, with catcher. Leaving grass in fadges on-site for South Alive to dispose of</td>
+                </tr>
+                <tr>
+                    <td>Rubbish collection</td>
+                    <td>Probably about 30 mins a time</td>
+                    <td>Picking up rubbish in community park and around south city</td>
+                </tr>
+                <tr>
+                    <td>Putting up posters</td>
+                    <td>Probably about 30 mins a time</td>
+                    <td>Responding as needed to put up posters for events and projects</td>
+                </tr>
+                <tr>
+                    <td>Event assistance</td>
+                    <td>Probably about 1 - 3 hours</td>
+                    <td>Help with set-up, running and pack-up for events in community park</td>
+                </tr>
+                <tr>
+                    <td>Window cleaning</td>
+                    <td>1 -2 hours, perhaps every couple of months – probably on a roster</td>
+                    <td>Cleaning windows in South Alive office at the mall</td>
+                </tr>
+                <tr>
+                    <td>Administration</td>
+                    <td>Whatever you can manage!</td>
+                    <td>Tasks such as:
+                        <ol>
+                            <li>gathering and entering performance data (volunteer hours, donated money and products, etc</li>
+                            <li>ordering supplies</li>
+                            <li>filling, making files for teams</li>
+                            <li>keeping databases updated</li>
+                        </ol>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Board Secretary</td>
+                    <td>Board meetings 1 x month – first Tuesday, 5.00-8.00pm Plus time to write minutes</td>
+                    <td>Take minutes at Trust board meetings and write them up afterwards</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </div>
+</div>
+

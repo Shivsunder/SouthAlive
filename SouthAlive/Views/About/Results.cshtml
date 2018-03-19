@@ -1,0 +1,106 @@
+﻿@{
+    ViewData["Title"] = "RESULTS";
+}
+@section styles{
+
+    <style>
+        .TeamTitle {
+            padding: 30px;
+            color: white;
+            background: #67c79d;
+        }
+
+        #RESULTS_IMG {
+            margin: 0;
+            padding: 0;
+        }
+
+        .Result > img {
+            width: 80%;
+        }
+
+        @@media screen and (min-width:1024px) {
+            .Result > img {
+                width: 50%;
+            }
+        }
+    </style>
+
+}
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a class="breadcrumb dropdownAbout" href="#" data-activates='dropdownAbout'>About</a>
+            <span class="breadcrumb">Introduction</span>
+        </div>
+    </div>
+</nav>
+
+<!-- Dropdown Structure -->
+<ul id='dropdownAbout' class='dropdown-content'>
+    <li><a href="/About/Introduction">INTRODUCTION</a></li>
+    <li><a href="/About/Organisation">ORGANISATION</a></li>
+    <li><a href="/About/Teams_And_Projects">TEAMS & PROJECTS</a></li>
+    <li><a href="/About/Results">RESULTS</a></li>
+    <li><a href="/About/SponsorInformation">SPONSER INFORMATION</a></li>
+    <li><a href="/About/LocalInformation">LOCAL INFORMATION</a></li>
+    <li><a href="/About/Contact">CONTACT</a></li>
+</ul>
+
+<div class="container">
+    <div class="col s12 Result">
+        <div class="sr-zero-btn1">
+            <h3 class="center TeamTitle z-depth-1"><b>Results</b></h3><br />
+        </div>
+        <div class="col s12 sr-zero-btn5" id="RESULTS_IMG">
+            <img class="responsive-img z-depth-1" src="~/images/about/Results/resultsBanner.jpg" alt="RESULTS" />
+        </div><br />
+
+        <h4>Project Outcomes</h4>
+        <p class="flow-text">Discussed in team pages.</p>
+        <br />
+        <h4>Community Research on Changes in Attitudes and Levels of Pride</h4>
+        <p class="flow-text">Each year we conduct one on one research with a minimum of 210 South Invercargill residents to determine their level of pride in how South Invercargill looks and feels.</p>
+        <p class="flow-text">Our latest research shows that we have made substantial progress in changing the community’s view of South Invercargill. The percentage who agree, or strongly agree, with the statement, “I feel a sense of pride in how South Invercargill looks and feels” has risen from 35% in 2012 to 82.5% in 2015. Results are shown in the graphs below:</p>
+        <br /><br />
+
+        <h5 class="center">"A sense of pride in the way South Invercargill looks and feels"</h5><br />
+        <div class="center">
+            <img class="img-fluid z-depth-1 mx-auto" src="~/images/about/Results/sagraph1.PNG" alt="Alternate Text" />
+        </div>
+        <br />
+        <h5 class="center">"Those who disagree"</h5>
+        <br />
+        <div class="center">
+            <img class="img-fluid z-depth-1 mx-auto" src="~/images/about/Results/sagraph2.PNG" alt="Alternate Text" />
+        </div>
+        <br /><br />
+        <h4>Views of South Alive performance</h4>
+        <p class="flow-text">Our annual research also measures awareness of South Alive and views about our effectiveness. The results are shown below. In summary, the 2015 results showed that:</p>
+        <ul>
+            <li>12.1% think we’re making, ‘a reasonable amount of difference for the time we’ve been in place’</li>
+            <li>36.4% think we’re making ‘quite a bit of difference’</li>
+            <li>42.8% think we’re making ‘a big difference’</li>
+        </ul>
+        <p class="flow-text"><strong>The total, in 2015, of all those who think we’re making some degree of positive difference is 91.3%.</strong></p>
+        <br />
+        <div class="center">
+            <img class="img-fluid z-depth-1 mx-auto" src="~/images/about/Results/sa3.png" alt="Alternate Text" />
+        </div>
+            <h6 class="text-center">Note: The first round of research in 2012 was conducted some 10 weeks after South Alive began. </h6>
+        <br />
+        <h4>Other Performance Data 2012 -2015</h4>
+        <p class="flow-text"><strong>Volunteer time *</strong></p>
+        <ul>
+            <li>May 2012 to November 2012 2,280 hours at $13.75/hr<span class="pull-right">= $31,350</span></li>
+            <li>To end June 2014 3,000 hours at $13.75/hr<span class="pull-right">= $41,250</span></li>
+            <li>July 2014 to present 4,812 hours at $14.25/hr<span class="pull-right">= $68,571</span></li>
+
+        </ul>
+        <span class="pull-right"><strong>$141,171</strong></span><br />
+        <h6><strong>*</strong>it is an ongoing challenge to accurately record volunteer time. Our estimate is that we are recording less than 60%</h6>
+        <p class="flow-text"><strong>Value of donations and in-kind contributions by businesses and private individuals is: </strong><span class="pull-right"><strong>$241,500</strong></span></p>
+        <p class="flow-text"><strong>South Alive's own fundraisng:</strong> <span class="pull-right"><strong>$21,304</strong></span></p>
+    </div>
+</div>

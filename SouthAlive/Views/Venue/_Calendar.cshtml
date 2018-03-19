@@ -1,0 +1,53 @@
+﻿@{
+    DateTime day = DateTime.Today;
+    DateTime tmp = new DateTime(ViewBag.year, ViewBag.month, 1);
+}
+<h3 class="CalendarTitle">@if (ViewBag.month != day.Month || ViewBag.year != day.Year){<span class="arrow" id="prem" onclick="prev(true)">&lt;</span>} @tmp.ToString("MMMM") @ViewBag.year <span class="arrow" id="nm" onclick="getmonth(@ViewBag.month,@ViewBag.year)">&gt;</span></h3>
+<table>
+    <tr>
+        <th>Sun</th>
+        <th>Mon</th>
+        <th>Tue</th>
+        <th>Wed</th>
+        <th>Thu</th>
+        <th>Fri</th>
+        <th>Sat</th>
+    </tr>
+    @{
+        int monthLen = DateTime.DaysInMonth(ViewBag.year, ViewBag.month);
+        DateTime drawday = new DateTime(ViewBag.year, ViewBag.month, monthLen);
+
+        drawday = new DateTime(ViewBag.year, ViewBag.month, 1);
+        drawday = drawday.AddDays(-(int)drawday.DayOfWeek);
+        for (int row = 0; row < 6; row++)
+        {
+            <tr>
+                @for (int column = 0; column < 7; column++)
+                {
+                    string col;
+
+                    bool isCGrey = false;
+
+                    if (ViewBag.Venue.VenueTimesOptions.Name == "Custom")
+                    {
+                        isCGrey = true;
+                        foreach (VenueCustomDay d in ViewBag.Venue.VenueCustomDays)
+                        {
+                            if (d.Day == (int)drawday.DayOfWeek) { isCGrey = false; }
+                        }
+                    }
+
+                    if (drawday.Month != ViewBag.month) { col = "bggrey"; }
+                    else if (drawday.DayOfYear == day.DayOfYear && ViewBag.year == day.Year) { col = "bglightblue"; }
+                    else if ((int)drawday.DayOfWeek > 0 && (int)drawday.DayOfWeek < 6 && ViewBag.Venue.VenueTimesOptions.Name == "Weekends") { col = "bgmidgrey"; }
+                    else if (((int)drawday.DayOfWeek == 0 || (int)drawday.DayOfWeek == 6) && ViewBag.Venue.VenueTimesOptions.Name == "Mon - Fri") { col = "bgmidgrey"; }
+                    else if (isCGrey) { col = "bgmidgrey"; }
+                    else if (drawday.DayOfYear < day.DayOfYear && ViewBag.year == day.Year) { col = "bglightgrey"; }
+                    else { col = "bgwhite"; }
+                    <td class="@col" onclick="chooseDate(@drawday.Day,@drawday.Month,@drawday.Year)">@drawday.Day</td>
+                    drawday = drawday.AddDays(1);
+                }
+            </tr>
+        }
+    }
+</table>

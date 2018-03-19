@@ -1,0 +1,104 @@
+﻿@model IEnumerable<SouthAlive.Models.ApplicationUser>
+@inject UserManager<ApplicationUser> userManager
+
+@{
+    ViewData["Title"] = "Team1 Management";
+}
+@section styles{
+    <style>
+        .TeamList-title {
+            margin: 30px auto;
+            padding: 10px;
+        }
+
+        .submitBtn {
+            border: 0px;
+            color: tomato;
+            background: transparent;
+        }
+
+        .sameLine {
+            display: inline-flex;
+        }
+
+        .AddBtn {
+            border: 1px;
+            border-radius: 5px;
+            padding: 5px;
+        }
+    </style>
+}
+
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="/Teams" class="breadcrumb">TEAMS</a>
+            <a href="/Teams/Team1" class="breadcrumb">TEAM 1</a>
+            <span class="breadcrumb">TEAM 1 MEMBER</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="z-depth-1">
+        <h2 class="center grey darken-1 TeamList-title white-text">Team 1 Member List</h2>
+    </div>
+    @if(User.IsInRole("Team1Admin")){
+        <div class="card yellow lighten-3" style="padding:10px 0;">
+            <h4 class="center grey-text text-darken-2">Team 1's Admin: @User.Identity.Name</h4>
+        </div>
+    }
+
+
+    <table class="bordered highlight responsive-table">
+        <thead>
+            <tr class="grey darken-1 white-text">
+                <th class="center">
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th class="center">
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th class="center">
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th class="center">
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+    @if (await userManager.IsInRoleAsync((await userManager.FindByIdAsync(@item.Id)), "Team1User"))
+                        {
+                <tr>
+                    <td class="center">
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td class="center">
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+
+                </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+</div>
+
+@section Scripts{
+    <script>
+
+    </script>
+}

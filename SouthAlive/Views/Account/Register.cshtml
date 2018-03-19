@@ -1,0 +1,94 @@
+﻿
+
+
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+@section styles{
+    <style>
+        .form-title{
+            padding:20px;
+        }
+    </style>
+
+}
+
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <span class="breadcrumb">Register</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container" id="RegisterForm">
+
+    <div class="row">
+
+        <!--Form with header-->
+
+
+
+                <!--Header-->
+                <div class="form-header grey darken-1">
+                    <h3 class="center white-text darken-1 form-title"><i class="fa fa-user"></i> Register</h3>
+                </div>
+                <div class="row">
+                        <form asp-controller="Account" asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" class="form-horizontal">
+                            <h4 class="center">Please fill in the form to create a new account.</h4>
+
+                            <div asp-validation-summary="All" class="text-danger"></div>
+
+                            <!--Body-->
+
+                            <div class="input-field col s12 m8 push-m2">
+                                <i class="material-icons prefix">create</i>
+                                <input asp-for="FirstName" type="text" class="validate">
+                                <label for="FirstName">First Name</label>
+                            </div>
+
+                            <div class="input-field col s12 m8 push-m2">
+                                <i class="material-icons prefix">create</i>
+                                <input asp-for="LastName" type="text" class="validate">
+                                <label for="LastName">LastName</label>
+                            </div>
+
+                            <div class="input-field col s12 m8 push-m2">
+                                <i class="material-icons prefix">email</i>
+                                <input asp-for="Email" type="email" class="validate">
+                                <label for="Email">Email</label>
+                            </div>
+
+                            <div class="input-field col s12 m8 push-m2">
+                                <i class="material-icons prefix">create</i>
+                                <input asp-for="PhoneNumber" type="text" class="validate">
+                                <label for="PhoneNumber">Phone Number</label>
+                            </div>
+
+                            <div class="input-field col s12 m8 push-m2">
+                                <i class="material-icons prefix">lock</i>
+                                <input asp-for="Password" type="password" class="validate">
+                                <label for="Password">Password</label>
+                            </div>
+
+                            <div class="input-field col s12 m8 push-m2">
+                                <i class="material-icons prefix">lock_outline</i>
+                                <input asp-for="ConfirmPassword" type="password" class="validate">
+                                <label for="ConfirmPassword">ConfirmPassword</label>
+                            </div>
+
+                            <div class="center col s12 m8 push-m2">
+                                <button type="submit" class="btn red darken-4">Register!</button>
+                            </div>
+
+                        </form>
+                    </div>
+
+
+    </div>
+</div>
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

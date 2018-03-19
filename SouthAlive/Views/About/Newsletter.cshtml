@@ -1,0 +1,92 @@
+﻿@model IEnumerable<SouthAlive.Models.NewsLetterPDF>
+@{
+    List<NewsLetterPDF> list = Model.ToList();
+}
+
+
+@section styles{
+    <style>
+        .venue-hover {
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .Lettertitle {
+            padding: 20px;
+            background: #808080;
+            color: #fff;
+        }
+
+        .forAdmin {
+            margin-top: -30px;
+        }
+
+        .buttn {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s; /* Safari */
+            transition-duration: 0.4s;
+        }
+
+        .butn:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+    </style>
+}
+
+    <div class="container">
+            <div class="col s12">
+                <div class="Lettertitle sr-zero-btn1 z-depth-1">
+                    <h3 class="center"><b>Newsletter</b></h3>
+                </div>
+            </div>
+        <div class="col m12 center">
+            <div class="container">
+
+                @if (User.IsInRole("Admin"))
+                     {
+                <form asp-controller="about" asp-action="Newsletter" method="post" enctype="multipart/form-data">
+                    <div class="col m12">
+                        <label for="NewsLetter">Title</label>
+                        <textarea required="" name="Title" type="text"></textarea>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                    </div>
+                    <div class="col m12">
+                        <input required="" class="form-control-file" name="file" type="file" accept=".pdf" id="PDF">
+                    </div>
+                    <input class="buttn butn" type="submit" value="Submit">
+                </form>
+                     }
+            </div>
+        </div>
+        <div class="col m12 center">
+            <div class="row">
+                <div class="container">
+                    @foreach (NewsLetterPDF nl in list)
+                        {
+                <div class="col m12 hoverable center" style="padding:10px;">
+                    <div class="col s3 ">
+                        <h4 ><a  href="@nl.Path">@nl.Title</a></h4>
+                    </div>
+                </div>
+                        }
+                </div>
+            </div>
+        </div>
+ </div>
+ 
+
+
+
+
+
+

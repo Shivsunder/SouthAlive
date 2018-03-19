@@ -1,0 +1,72 @@
+﻿@model IEnumerable<SouthAlive.Models.Venue>
+@inject UserManager<ApplicationUser> UserManager
+@functions{
+    private string timeText(TimeSpan time)
+    {
+        int hour = time.Hours;
+        int minute = time.Minutes;
+        string ext = "AM";
+        if (hour > 12) { hour -= 12; ext = "PM"; }
+        else if (hour == 12) { ext = "PM"; }
+        if (minute == 0) { ext = "00 " + ext; }
+        else { ext = minute + " " + ext; }
+        return hour + ":" + ext;
+    }
+}
+<div class="container">
+    <div class="col m10">
+        <h5 class="center blue lighten-2 z-depth-1-half white-text" style="padding:20px;margin-bottom:20px;">Booking Statement</h5>
+    </div>
+    <div class="col m10">
+
+
+        @if (ViewBag.VenueBooking != null)
+        {
+            <table class="highlight striped">
+                <thead>
+                    <tr>
+                        <td><b>Venue</b></td>
+                        <td><b>Event</b></td>
+                        <td><b>Name</b></td>
+                        <td><b>When</b></td>
+                        <td><b>Approvement</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (VenueBooking book in ViewBag.VenueBooking)
+                    {
+                        ApplicationUser use = await UserManager.FindByIdAsync(book.UserId);
+
+
+                        <tr>
+                            <td>@book.Venue.VenueName</td>
+                            <td>@book.EventName</td>
+                            <td>@use.FirstName @use.LastName</td>
+                            <td>@use.PhoneNumber</td>
+                            <td>@book.Day/@book.Month/@book.Year &nbsp&nbsp @timeText(book.StartTime) - @timeText(book.EndTime)</td>
+                            <td>
+                                @if (!book.IsApproved)
+                                {
+                                    <a class="btn green" href="/Venue/ConfirmBooking?id=@book.VenueBookingId">
+                                        Approve
+                                    </a>
+                                    
+                                    <a class="btn red" style="margin-left:3px;">Decline</a>
+                                }
+                                else
+                                {
+                                    <a class="btn blue">
+                                        Approved
+                                    </a>
+
+                                }
+                            </td>
+                        </tr>
+
+
+                    }
+                </tbody>
+            </table>
+        }
+    </div>
+</div>

@@ -1,0 +1,291 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+@section styles{
+    <style>
+        .fb {
+            padding: 20px 0 100px 0;
+        }
+
+        .card {
+            min-height: 300px;
+            margin: 5px 0;
+        }
+
+            .card img {
+                object-fit: scale-down;
+                min-height: 200px;
+                max-height: 200px;
+            }
+
+        .card-block {
+            min-height: 100px;
+        }
+
+        .fb-article {
+            height: 300px;
+            padding: 10px;
+            border: 2px dashed;
+            margin: auto;
+        }
+
+            .fb-article img {
+                max-height: 200px;
+            }
+
+        .fb-caption {
+            max-height: 50px;
+        }
+
+        .FBBox {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-radius: 10px;
+        }
+
+        .sponser-image {
+            max-height: 150px;
+        }
+
+        .sponser {
+            margin-top: 50px;
+        }
+
+        .fbc {
+            float: left;
+            display: inline-block;
+            margin: auto;
+            float: none;
+            max-height: 500px;
+        }
+
+        .well {
+            position: relative;
+            display: block;
+        }
+
+        .mt70 {
+            margin-top: 70px;
+        }
+
+        #columns {
+            column-width: 200px;
+            column-gap: 15px;
+        }
+
+
+            #columns figure {
+                display: inline-block;
+                border: 1px solid rgba(0,0,0,0.2);
+                margin: 0;
+                margin-bottom: 15px;
+                padding: 10px;
+                box-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            }
+
+                #columns figure img {
+                    width: 100%;
+                }
+
+                #columns figure figcaption {
+                    border-top: 1px solid rgba(0,0,0,0.2);
+                    padding: 10px;
+                    margin-top: 11px;
+                }
+
+        .MainText {
+            background: #f67515;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .view > img {
+            width: 100%;
+        }
+
+        .carousel-caption > div {
+            background: #808080;
+        }
+
+        #carousel {
+            margin: 20px;
+        }
+
+            #carousel > ol > li {
+                border: 1px solid blue;
+            }
+
+                #carousel > ol > li:active {
+                    background: black;
+                }
+
+        .fb-img {
+            width: 100%;
+            height: auto;
+        }
+
+        .card {
+            height: 250px;
+            padding: 5px;
+        }
+
+        .carousel-item.red {
+            background-image: url('/images/home/carousel/slide1.png');
+            background-size: cover;
+        }
+
+        .carousel-item.amber {
+            background-image: url('/images/home/carousel/slide2.png');
+            background-size: cover;
+        }
+
+        .carousel-item.green {
+            background-image: url('/images/home/carousel/slide3.png');
+            background-size: cover;
+        }
+
+        .carousel-item {
+            position: absolute;
+        }
+
+            .carousel-item h2 {
+                position: relative;
+                left: 0%;
+                top: 78%;
+                width: 35%;
+                padding: 20px;
+            }
+
+        .fb-title {
+            padding: 20px 0;
+        }
+    </style>
+
+}
+@functions{
+    private string timeText(TimeSpan time)
+    {
+        int hour = time.Hours;
+        int minute = time.Minutes;
+        string ext = "AM";
+        if (hour > 12) { hour -= 12; ext = "PM"; }
+        else if (hour == 12) { ext = "PM"; }
+        if (minute == 0) { ext = "00 " + ext; }
+        else { ext = minute + " " + ext; }
+        return hour + ":" + ext;
+    }
+}
+@*@model IEnumerable<SouthAlive.Models.VenueBooking>*@
+@*@{
+    List<VenueBooking> bookings = Model.ToList();
+    bookings.Sort();
+}*@
+
+<div class="carousel carousel-slider" data-indicators="true">
+    <div class="carousel-item red white-text center" href="#one!">
+        <h2 class="black">Beautification Project</h2>
+        <p class="white-text"></p>
+    </div>
+    <div class="carousel-item amber white-text center" href="#two!">
+        <h2 class="black">Dog Park Project</h2>
+        <p class="white-text"></p>
+    </div>
+    <div class="carousel-item green white-text center" href="#three!">
+        <h2 class="black white-text">Operation Zero Rubbish</h2>
+        <p class="white-text"></p>
+    </div>
+</div>
+
+<div class="z-depth-1 sr-zero-btn1">
+    <h4 class="center MainText white-text">"A vibrant and diverse community that takes the lead in its own future.."</h4>
+</div>
+
+<div class="fb">
+    <div class="container">
+        <div class="col s4 push-s4 sr-zero-btn1 grey darken-1">
+            <h3 class="center white-text fb-title"><strong>Facebook Feed</strong></h3>
+        </div>
+    </div>
+   <div class="container">
+       <div class="row ">
+           <div class="col fb-page center m12" data-href="https://www.facebook.com/SouthAlive/" data-tabs="timeline" data-width="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/SouthAlive/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/SouthAlive/">South Alive.</a></blockquote></div>
+       </div>
+    </div>
+</div>
+
+
+
+@section scripts {
+
+    <script>
+        $('.carousel.carousel-slider').carousel({ fullWidth: true });
+
+        function getFacebook() {
+            var url = "https://graph.facebook.com/v2.12/me?fields=id%2Cname&access_token=EAACEdEose0cBAE1CrOLc1KRqYXE8QAakEj3ZCXJGPHeaWLngvMwlr64kACOZCmZCFBizEkKRntK4QrRDy4nnwtfHcPs5EoyAhmouv1nZAF9Bct60ZA4mVpujYnYd4z7QuUFuI390oLcI0zmb2eryx7TNT5x2X1XdbyuXWD5AmILZB6Xv0eU4eQFSqYfHgeuZCRDMedH4FzGwcz3DwHjggKe";
+            //curl - i - X GET \
+            //"https://graph.facebook.com/SouthAlive/posts?access_token=272745699845883|XAEUFdubUvWBsN6uqD4skcbb5oQ";
+
+            $.getJSON(url, function (json) {
+                var html2 = "";
+
+                for (var j = 0; j < 12; j++) {
+
+                    var str = json.data[j].id.substring(16);
+                    var pic = "https://graph.facebook.com/" + str + "/picture";
+                    var PostedDate = json.data[j].created_time.slice(0, 10);
+
+
+                    html2 += "<div class='col s6 m4 l3'><div class='card'>";
+                    html2 += "<img class='fb-img' src='" + pic + "' onerror='this.src=" + '"/images/Brand.jpg"' + "'><div class='card-block'>";
+                    if (json.data[j].message != undefined) {
+                        html2 += "<p class='card-text'><a href='http://facebook.com/" + str + "'>" + json.data[j].message.slice(0, 50) + "...</a></p>";
+                    } else {
+                        if (json.data[j].story != undefined) {
+                            html2 += "<p class='card-text'><a href='http://facebook.com/" + str + "'>" + json.data[j].story + "</a></p>";
+
+
+
+
+                        }
+                    }
+
+                    html2 += "</div></div></div>";
+
+
+
+
+                    //html2 += "<figure class='white z-depth-2 sr-bottom'>";
+
+
+                    //var str = json.data[j].id.substring(16);
+                    //var pic = "https://graph.facebook.com/" + str + "/picture";
+
+                    //html2 += "<a href='http://facebook.com/" + str + "'>";
+                    //html2 += "<img src='" + pic + "' style='background:black' onerror='this.src=" + '"/images/Brand.jpg"' + "'>";
+                    //html2 += "</a >";
+
+                    //var PostedDate = json.data[j].created_time.slice(0, 10);
+
+                    //if (json.data[j].message != undefined) {
+                    //    html2 += "<figcaption><a href='http://facebook.com/" + str + "'>" + json.data[j].message.slice(0, 50) + "...</a></figcaption>";
+                    //} else {
+                    //    if (json.data[j].story != undefined) {
+                    //        html2 += "<figcaption><a href='http://facebook.com/" + str + "'>" + json.data[j].story + "</a></figcaption>";
+                    //    }
+                    //}
+
+                    //html2 += "</figure>";
+
+
+
+                }
+
+
+                $('.facebookfeed').html(html2);
+            });
+        };
+        getFacebook();
+
+    </script>
+
+}

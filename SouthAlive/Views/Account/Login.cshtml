@@ -1,0 +1,106 @@
+﻿@using System.Collections.Generic
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@model LoginViewModel
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    ViewData["Title"] = "Log in";
+}
+@section styles{ 
+    <style>
+        #div-login{
+            padding:30px;
+            margin:20px auto;
+        }
+        .form-header, .form-footer {
+            margin: 20px auto;
+            padding-left:20px;
+        }
+        .login-input {
+            margin: 30px 0;
+        }
+        @@keyframes scale{
+            50% { transform: scale(1.1);}
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+}
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <span class="breadcrumb">Login</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container hoverable" id="div-login">
+    <div class="row">
+        <!--Form with header-->
+        <form asp-controller="Account" asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post" role="form">
+            <!--Header-->
+            <div class="form-header col s12 m8 push-m2 grey darken-1">
+                <h3 class="center white-text darken-1"><i class="fa fa-lock"></i> Login</h3>
+            </div>
+
+            <div asp-validation-summary="All" class="md-form text-danger"></div>
+
+            <!--Body-->
+            <div class="input-field col s12 m8 push-m2 login-input">
+                <i class="material-icons prefix">email</i>
+                <input asp-for="Email" type="text" class="validate">
+                <label for="Email">Email</label>
+            </div>
+
+            <div class="input-field col s12 m8 push-m2 login-input">
+                <i class="material-icons prefix">lock_open</i>
+                <input asp-for="Password" type="password" class="validate">
+                <label for="Password">Password</label>
+            </div>
+
+            
+            <div class="center col s12 m8 push-m2">
+                <button type="submit" class="btn red darken-4">Go!</button>
+            </div>
+
+
+            <div class="md-form col s12 m8 push-m2">
+                <p>
+                    <input asp-for="RememberMe" type="checkbox" />
+                    <label for="RememberMe">Remember Me</label>
+                </p>
+                <br />
+            </div>
+
+
+
+            <!--Footer-->
+            <div class="col s12 m8 push-m2 grey darken-1">
+                <div class="form-footer">
+                    <p class="white-text">Not a member? <a class="btn" asp-action="Register">Sign Up</a></p>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+    <script>
+        function swing() {
+                $(this).parent().find('i').animate({ 'top': '5px' }, 600).animate({ 'top': '10px' }, 600,swing);
+        };
+
+        $('input').focus(swing);
+        $('input').blur(function () {
+            $(this).parent().find('i').stop(swing);
+        });
+
+
+    </script>
+}

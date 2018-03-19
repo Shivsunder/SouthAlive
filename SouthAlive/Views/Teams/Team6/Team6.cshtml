@@ -1,0 +1,155 @@
+﻿@inject UserManager<ApplicationUser> userManager
+
+@section Styles{
+    <style>
+        .teamManager {
+            margin-top: 0;
+        }
+
+            .teamManager i {
+                position: relative;
+                top: 5px;
+            }
+
+        .team-img {
+            width: 100%;
+            height: auto;
+        }
+
+        #team1-Container > div:first-child > h3 {
+            padding: 20px 0;
+        }
+
+        #team1-Container ul {
+            margin-left: 10px;
+        }
+
+        .Bread {
+            margin-bottom: 0;
+        }
+    </style>
+}
+
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="/teams" class="breadcrumb">TEAMS</a>
+            <span class="breadcrumb">TEAM 6</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container" id="team1-Container">
+    <div>
+        <h3 class="center white-text yellow darken-1">Team: Beautification</h3>
+    </div>
+
+    <div>
+        <img class="team-img" src="~/images/Teams/beautficiationabanner.jpg" />
+
+        <br />
+        <h5>Convenors:</h5>
+        <p>Gayle Hammond: papatowaimc@xtra.co.nz tel 216 4348</p>
+        <p>Geoff Thompson: geoff.thompson@clear.net.nz tel 218 3683</p>       
+
+        <br />
+        <h5>Purpose:</h5>
+        <p>The group started off initially focusing only on the Zero Rubbish project. It has now evolved to also include projects around planting that will beautify the South Invercargill area and gateways identification to increase a sense of pride and identification.</p>
+        <br />
+        <h5>What have we done?</h5>
+        <ul class="browser-default">
+            <li>Planted over 1000 bulbs and 350 plants in our Community Park, Pop up Gardens and Catlin’s Gateway.</li>
+            <li>All the plants and bulbs have been donated by the community</li>
+            <li>Clean-up of Catlins Highway above Scott Street (at 100km sign) by carting dirt to make gardens, cutting grass and weeds and planting</li>
+            <li>A major initial clean up of the South city shopping area including the vacant land behind the Mall, now our Community Park.</li>
+            <li>Contributed people to many working bees to build parts of the Community Park</li>
+            <li>Operation Zero Rubbish Project, which has achieved the adoption of 130 of the 150 streets in South Invercargill. the idea if to get families/students/kindies/individuals etc to adopt street and parks and keep them free of rubbish. Presented volunteers with a certificate of appreciation in October 2013.</li>
+            <li>Planted 3 rounds of Hanging Baskets on Elles Road as well as supplied and installed an automatic watering system. The group maintains the baskets by checking on them at least once a week and pruning where necessary</li>
+            <li>Organised a workshop through Diacks Nursery on how to plant Hanging Basket Workshop</li>
+            <li>Co-manage the community Garden boxes in the Community Park with Fruit and Nut Tree group – which included hours of watering during the summer.</li>
+            <li>Created Pop-up flower Gardens along the fences of the community park, as well as a Raspberry orchard</li>
+            <li>Maintain a Plant Bank, of shrubs, perennials, annuals and bulbs.</li>
+            <li>Spent many voluntary hours working on our projects, making new friends and building community bonds.</li>
+        </ul>
+
+        <h5>Forward plans</h5>
+        <p><i>Hanging Baskets</i></p>
+        <ul class="browser-default">
+            <li>Replant Hanging baskets in August 2015 and March 2016 and ongoing twice per year. Baskets need to be regularly maintained</li>
+        </ul>
+
+        <p><i>Operation Zero Rubbish</i></p>
+        <ul class="browser-default">
+            <li>Increase the total number of streets adopted in Operation Zero Rubbish to 95%</li>
+            <li>Keep the list of adopted streets and parks current by staying in contact with volunteers</li>
+            <li>Look for new ways to retain volunteers, and obtain information about what’s happening on their rounds</li>
+        </ul>
+
+        <p><i>Pop-Up Flower Gardens</i></p>
+        <ul class="browser-default">
+            <li>Maintain existing Pop-up flower Gardens, and in conjunction with South Invercargill Business Owners look for opportunities to create more gardens.</li>
+            <li>Plant 1000’S of bulbs this autumn</li>
+            <li>Continue to maintain and expand the plant bank to supply plants for Beautification projects</li>
+        </ul>
+
+        <p><i>Community Vegetable Gardens in Community Park</i></p>
+        <ul class="browser-default">
+            <li>Replant the South Alive Community Vegetable Gardens seasonally.</li>
+            <li>Install automatic watering system.</li>
+            <li>Encourage more groups from the community to adopt garden boxes.</li>
+        </ul>
+
+        <p><i>Gateways Identification Project</i></p>
+        <ul class="browser-default">
+            <li>Continue development of the Catlin’s Gateway Project with planting and other needs</li>
+        </ul>
+           
+        <br />
+        <h5>Current volunteer opportunities for the Beautification team</h5>
+        <table class="bordered highlight striped">
+            <thead>
+                <tr>
+                    <td><b>Task</b></td>
+                    <td><b>Commitment</b></td>
+                    <td><b>What's Involved?</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Join our Action Team</td>
+                    <td>Attend meetings, approx. 1x monthly. Meetings usually 1-2 hrs, on a Saturday at 10am.</td>
+                    <td>Meetings discuss and make decisions on the projects, assess any new project ideas. Organise the work needed on projects</td>
+                </tr>
+                <tr>
+                    <td>Adopt a pop-up flower garden</td>
+                    <td>Approx. 30 mins every fortnight</td>
+                    <td>Gardens are usually in public spaces outside shops, parks etc. Work involved planting up to 2x year (we can supply plants) and keeping weeded and maintained</td>
+                </tr>
+                <tr>
+                    <td>Casual volunteer</td>
+                    <td>Usually 1 – 3 hours for working bees</td>
+                    <td>Usually tasks such as weeding but also pruning, planting and ground work</td>
+                </tr>
+                <tr>
+                    <td>Catering Volunteer</td>
+                    <td>Usually 1- 3 hours for working bees</td>
+                    <td>Tasks include food preparation and serving morning tea, lunch or afternoon tea</td>
+                </tr>
+                <tr>
+                    <td>Zero Rubbish Volunteer</td>
+                    <td>Usually ½ - 1 hour weekly depending on the size of the street</td>
+                    <td>Adopt a Street and collect Rubbish Help with project management</td>
+                </tr>
+                <tr>
+                    <td>Plant Propagator</td>
+                    <td>As and when required</td>
+                    <td>Take cutting from your garden and pot them up for projects</td>
+                </tr>
+            
+            </tbody>
+        </table>
+        <br />
+    </div>
+</div>
+

@@ -1,0 +1,68 @@
+﻿@model List<SouthAlive.Models.PageIntroduction>
+
+@{
+    ViewData["Title"] = "INTRODUCTION";
+}
+@section styles{
+    <style>
+        .TeamTitle {
+            padding: 30px;
+            color: white;
+            background: #67c79d;
+        }
+        #INTRODUCTION_IMG {
+            margin:0;
+            padding:0;
+
+        }
+    </style>
+}
+
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a class="breadcrumb dropdownAbout" href="#" data-activates='dropdownAbout'>About</a>
+            <span class="breadcrumb">Introduction</span>
+        </div>
+    </div>
+</nav>
+
+<!-- Dropdown Structure -->
+<ul id='dropdownAbout' class='dropdown-content'>
+    <li><a href="/About/Introduction">INTRODUCTION</a></li>
+    <li><a href="/About/Organisation">ORGANISATION</a></li>
+    <li><a href="/About/Teams_And_Projects">TEAMS & PROJECTS</a></li>
+    <li><a href="/About/Results">RESULTS</a></li>
+    <li><a href="/About/SponsorInformation">SPONSER INFORMATION</a></li>
+    <li><a href="/About/LocalInformation">LOCAL INFORMATION</a></li>
+    <li><a href="/About/Contact">CONTACT</a></li>
+</ul>
+
+<div class="container">
+    <div class="col s12">
+        @if (User.IsInRole("SuperAdmin"))
+        {
+            <a class="btn" href="/PageIntroduction">Edit</a>
+        }
+
+        <div class="sr-zero-btn1">
+            <h3 class="center TeamTitle z-depth-1"><b>Introduction</b></h3><br />
+        </div>
+        <div class="col s12 sr-zero-btn5" id="INTRODUCTION_IMG">
+            <img class="responsive-img z-depth-1" src="~/images/about/introduction/Introduction.jpg" alt="ABOUT US" />
+        </div>
+        <br />
+        <p class="flow-text"></p>
+        <p class="flow-text"></p>
+        <p class="flow-text"></p>
+        <br /><h5><b></b></h5>
+        <p class="flow-text"></p>
+        <br /><h5><b></b></h5>
+        <p class="flow-text"></p>
+    </div>
+</div>
+
+@section Scripts{ 
+
+}

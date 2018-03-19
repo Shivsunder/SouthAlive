@@ -1,0 +1,41 @@
+﻿@{
+    int[] Photo = new int[54];
+    for (var i = 1; i < 54; i++)
+    {
+        Photo[i - 1] = i;
+    }
+    ViewBag.Photo = Photo;
+}
+
+@section Styles{
+    <link href="~/lib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+}
+
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <span class="breadcrumb">Photo Gallery</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="col s12 center">
+        @foreach (var p in ViewBag.Photo)
+        {
+            @if( p != 0) { 
+            <a href="/images/Photo/@(p.ToString()).jpg" data-lightbox="image" data-title="SouthAlive">
+                <img src="/images/Photo/@(p.ToString()).jpg" width="150" height="150" />
+            </a>
+            }
+        }
+
+
+
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/lib/lightbox/js/lightbox.js"></script>
+}

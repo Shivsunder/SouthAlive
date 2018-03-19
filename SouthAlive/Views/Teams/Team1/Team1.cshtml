@@ -1,0 +1,110 @@
+﻿@inject UserManager<ApplicationUser> userManager
+  
+@section Styles{
+    <style>
+        .teamManager{
+            margin-top:0;
+        }
+            .teamManager i {
+                position:relative;
+                top:5px;
+            } .team-img {
+                width: 100%;
+                height: auto;
+            }
+        #team1-Container > div:first-child > h3{
+            padding:20px 0;
+        }
+        #team1-Container ul{
+            margin-left:10px;
+        }
+        .Bread{
+            margin-bottom:0;
+        }
+    </style>
+}
+  
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="/teams" class="breadcrumb">TEAMS</a>
+            <span class="breadcrumb">TEAM 1</span>
+        </div>
+    </div>
+</nav>
+
+
+@if (User.IsInRole("Team1Admin"))
+{
+
+
+        <div class="teamManager card-panel yellow lighten-3">
+            <a class="grey-text text-darken-1" href="/Teams/Team1Manage">
+                <i class="material-icons">add_box</i> Team1 Member Management
+            </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a class="grey-text text-darken-1" href="/Teams/Team1List">
+                <i class="material-icons">people</i> Team1 Member List
+            </a>
+        </div>
+
+
+}
+
+<div class="container" id="team1-Container">
+    <div>
+        <h3 class="center white-text teal">Team: Child & Youth Engagement</h3>
+    </div>
+
+    <div>
+        <img class="team-img" src="~/images/Teams/childrenbanner.jpg" />
+
+        <br /><br />
+        <p>Convenor: Contact South Alive office</p>
+
+        <p>Email: southalive@gmail.com</p>
+
+        <p>Telephone: 21 6882</p>
+
+        <h4>Purpose :</h4>
+        <p>To ensure young people in South Invercargill are involved in the positive development of their community.</p>
+        <h5>Goals:</h5>
+        <ol>
+            <li>To provide an opportunity for young people's voices to be heard.</li>
+            <li>To inspire and support young leaders in South Invercargill</li>
+            <li>To have young people actively involved in South Alive events, discussions and vision</li>
+            <li>To help the South Alive adults understand young peoples wants and needs around their community involvement.</li>
+        </ol>
+
+        <h5>What has the team done?</h5>
+        <ul>
+            <li><i class="tiny material-icons">done</i>&nbsp;&nbsp;Kingswell Creek clean-up & signage, with help from volunteer team & Aurora College students & Environment Southland.</li>
+            <li><i class="tiny material-icons">done</i>&nbsp;&nbsp;Outdoor Gym behind South City Mall - developed plan for gym, sourced and organised equipment, obtained funding from ICC Active Communities fund and local business, and assistance from ICC Parks</li>
+            <li><i class="tiny material-icons">done</i>&nbsp;&nbsp;Organising 'South City Yellow Bikes Loan Scheme' - selection of South Alive bikes to be parked in stands behind South City Mall & available to families & individuals to use.</li>
+            <li><i class="tiny material-icons">done</i>&nbsp;&nbsp;SeaWeek Banner on fence at Dog Park - advertised & encouraged participation from Early Childhood Centres & South City Schools.</li>
+            <li><i class="tiny material-icons">done</i>&nbsp;&nbsp;Donation of Books to after-school reading programme at Lindisfarne Community Centre.</li>
+        </ul>
+
+        <h5>Forward plans</h5>
+        <ul>
+            <li><i class="tiny material-icons">schedule</i>&nbsp;&nbsp;Complete Yellow Bikes Scheme.</li>
+            <li><i class="tiny material-icons">schedule</i>&nbsp;&nbsp;Matariki Week Banner on fence at Dog Park.</li>
+            <li><i class="tiny material-icons">schedule</i>&nbsp;&nbsp;Student Reward Scheme involving South City Schools & businesses</li>
+            <li><i class="tiny material-icons">schedule</i>&nbsp;&nbsp;Encourage more young members to join group from schools & South City Community organisations - we want more youth ideas and participation!</li>
+        </ul>
+
+        <h5>What Volunteer opportunites are there?</h5>
+        <p><b>1. Join our Group:</b></p>
+        <p>We would like some more young members, with ideas for future projects! The Outdoor Gym idea came from a youth brainstorm.</p>
+        <p><b>Commitment:</b></p>
+        <p>Attend meetings, approx. 1 x monthly. Meetings are usually about 1 hour on Tuesdays or Wednesdays at 6:30pm</p>
+        <p>Meetings discuss and make decisions on the projects, assess any new projects ideas. Organise the work needed on projects.</p>
+        <p><b>2. Casual Volunteer:</b></p>
+        <ul>
+            <li><i class="tiny material-icons">people</i>&nbsp;&nbsp;Some maintenance & painting at Outdoor Gym</li>
+            <li><i class="tiny material-icons">people</i>&nbsp;&nbsp;Follow-up working bee at Kingswell Creek</li>
+        </ul>
+    </div>
+</div>
+

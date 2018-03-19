@@ -1,0 +1,120 @@
+﻿@{
+    ViewData["Title"] = "Venue Booking";
+}
+
+@section styles{
+<style>
+    .CalendarTitle, span.arrow, span.arrow:hover {
+        color: #e91e63;
+        padding-bottom:10px;
+    }
+        .CalendarTitle{
+            padding-left:15%;
+        }
+        span.arrow {
+            padding-left: 20px;
+            padding-right: 20px;
+        } 
+        table {
+            border: 0px;
+        }
+    th {
+        border-top: 2px solid #777;
+        text-align: center;
+        padding: 30px 20px;
+        font-size: 1.2em;
+        background: #fff;
+        color: #00695c;
+        font-weight: 600;
+    }
+    td {
+  
+        text-align: center;
+        padding: 20px;
+        font-size: 1.2em;
+        font-weight: 600;
+    }
+
+    .bgwhite {
+        background-color: white;
+    }
+
+    .bglightblue {
+        background-color: lightblue;
+    }
+
+    .bglightgrey {
+        text-align: center;
+        padding: 10px;
+        font-size: 1.2em;
+        background: #eee;
+        color: #777;
+        font-weight: 600;
+    }
+    .bgmidgrey {
+        text-align: center;
+        padding: 10px;
+        font-size: 1.2em;
+        background: #ddd;
+        color: #777;
+        font-weight: 600;
+    }
+
+    .bggrey {
+        text-align:center;
+        padding:10px;
+        font-size:1.2em;
+        background:#ccc;
+        color:#777;
+        font-weight:600;
+
+    }
+
+    .bgwhite:hover {
+        background-color: #FFFFAA;
+        cursor: pointer;
+        animation: ani1 1s infinite ease-in;
+        transition: animation 0.5s ease;
+    }
+
+    .arrow {
+        color: blue;
+    }
+
+        .arrow:hover {
+            color: blueviolet;
+            cursor: pointer;
+        }
+
+        @@keyframes ani1 {
+            50% { background:#ffffee; }
+            100% {
+                background:#ffff77;
+            }
+
+        }
+</style>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col m10 offset-m1">
+            <h3 class="center yellow darken-2 z-depth-1-half black-text text-lighten-4" style="padding:20px;">Booking (@ViewBag.venue.VenueName)</h3>
+        </div>
+    </div>
+    <div class="row jumbotron">
+        <div class="col s7" id="calendar">
+            @Html.Partial("_Calendar")
+        </div>
+        <div class="col s5">
+            <div id="form"></div>
+        </div>
+    </div>
+    
+</div>
+@section scripts {
+
+<script type="text/javascript" src="~/Scripts/Calendar.js"></script>
+<script type="text/javascript">setPrice(@ViewBag.venue.Price)</script>
+<script type="text/javascript">setid("@ViewBag.id")</script>
+}

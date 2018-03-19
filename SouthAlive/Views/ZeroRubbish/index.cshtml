@@ -1,0 +1,126 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using SouthAlive.Models
+
+@inject UserManager<ApplicationUser> UserManager
+@model IEnumerable<SouthAlive.Models.Polyline>
+@{
+    ViewData["Title"] = "Zero Rubbish";
+}
+@section styles{
+    <style>
+        #map-btn button{
+            margin:3px;
+            min-width:224px;
+        }
+        #map, #map-btn {
+            margin: 10px auto;
+        }
+        #map-btn span {
+            font-size:0.9em;
+        }
+    </style>
+}
+
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <span class="breadcrumb">Zero Rubbish</span>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <script type="text/javascript" src="~/Scripts/maps.js"></script>
+
+        @foreach (var item in Model)
+            {
+                ApplicationUser use = await UserManager.FindByIdAsync(item.UserId);
+                ApplicationUser loggedUser;
+                if (User.Identity.IsAuthenticated && !User.IsInRole("ZeroRubbish"))
+                {
+                    loggedUser = await UserManager.FindByIdAsync(UserManager.GetUserId(User));
+                }
+                else { loggedUser = null; }
+                string userpoly;
+                string polymod = item.PolyLine;
+                polymod = polymod.Replace("\\", "\\\\");
+                if (use == loggedUser)
+                {
+                    userpoly = "true";
+                }
+                else
+                {
+                    userpoly = "false";
+                }
+                string name = "";
+                if (item.LineInfo != null)
+                {
+                    name = item.LineInfo.Name;
+                }
+                else
+                {
+                    name = use.DisplayName;
+                }
+                <script type="text/javascript">
+                    addpoly("@polymod","@name",@userpoly,"@Html.DisplayFor(ModelItem=>item.PolylineId)");
+                </script>
+        }
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCxWZ7IyrkpV6g-5UQ90gnQDa_cu3v8Dac&callback=initMap"></script>
+        <script>
+            X1 = @ViewBag.cc[0].X1
+            Y1 = @ViewBag.cc[0].Y2
+            X2 = @ViewBag.cc[0].X2
+            Y2 = @ViewBag.cc[0].Y1
+        </script>
+        <div class="col l9 m11 s12 z-depth-2" id="map" style="height:480px;"></div>
+        <div class="col l3 m12 s12" id="map-btn">
+            @if (User.Identity.IsAuthenticated)
+            {
+                if (User.IsInRole("ZeroRubbish"))
+                {
+                    <form>
+                        <div class="md-form">
+                            <input type="text" id="Name" class="form-control">
+                            <label for="defaultForm-email">Name</label>
+                        </div>
+
+                        <div class="md-form">
+                            <input type="text" id="PhoneNumber" class="form-control">
+                            <label for="defaultForm-pass">Phone Number</label>
+                        </div>
+                    </form>
+
+                }
+
+                <button class="waves-effect waves-light btn-large" onclick="toggleContinuous()">
+                    <i class="left large material-icons">add_box</i> <span id="Continuous" class="left">Continuous: on</span>
+                </button>
+
+
+
+                    <button class="waves-effect waves-light btn-large" onclick="undo()">
+                        <i class="left large material-icons">undo</i> <span class="left">Undo</span>
+                    </button>
+
+
+                    <button class="waves-effect waves-light btn-large" onclick="reset()">
+                        <i class="left large material-icons">refresh</i> <span class="left">Reset</span>
+                    </button>
+
+                    <button class="waves-effect waves-light btn-large red darken-2" onclick="save()">
+                        <i class="left large material-icons">save</i> <span class="left">Save</span>
+                    </button>
+                    <script>Registered = true; User = "@User.Identity.Name"</script>
+            }
+            else
+            {
+                <p class="flow-text"><a href="/Account/Login">Sign in</a> or <a href="/Account/Register">Register</a> now to keep the streets of invercargill clean</p>
+            }
+        </div>
+    </div>
+</div>
+
+<!--
+    Please replace the API key with your own key for testing, cheers.
+-->

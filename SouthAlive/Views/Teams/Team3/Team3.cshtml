@@ -1,0 +1,95 @@
+﻿@inject UserManager<ApplicationUser> userManager
+
+@section Styles{
+    <style>
+        .teamManager {
+            margin-top: 0;
+        }
+
+            .teamManager i {
+                position: relative;
+                top: 5px;
+            }
+
+        .team-img {
+            width: 100%;
+            height: auto;
+        }
+
+        #team1-Container > div:first-child > h3 {
+            padding: 20px 0;
+        }
+
+        #team1-Container ul {
+            margin-left: 10px;
+        }
+
+        .Bread {
+            margin-bottom: 0;
+        }
+    </style>
+}
+
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="/teams" class="breadcrumb">TEAMS</a>
+            <span class="breadcrumb">TEAM 3</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container" id="team1-Container">
+    <div>
+        <h3 class="center white-text orange lighten-2">Team: Stronger Neighbourhoods</h3>
+    </div>
+
+    <div>
+        <img class="team-img" src="~/images/Teams/neighbourhoodsBanner.jpg" />
+
+        <br /><br />
+        <h4><b>What we are up to:</b></h4>
+        <br />
+        <h5><b>Convenor:</b> Peggy Peek</h5>
+        <h5><b>Email:</b> peggypeek@gmail.com</h5>
+        <h5><b>Telephone:</b> 216 2365</h5>
+
+        <h5>Purpose:</h5>
+        <p>To facilitate and sponsor projects at a more local, neighbourhood level to help neighbours establish and strengthen relationships with each other, thus increasing community health, happiness and resilience</p>
+        <br />
+        <h5>What have we done?</h5>
+        <p><b><i>Neighbourhood Project Fund</i></b></p>
+        <p>A fund which gives up to $1000 to groups or individuals for community projects, where the group matches that amount in-kind (labour, donations of products or services etc). So far funded three projects have been funded:</p>
+        <ul class="browser-default">
+            <li>New River School - walkway upgrade to Kew Road</li>
+            <li>A church to establish a community vegetable garden</li>
+            <li>Sport Southland to run a 10 week fitness programme at the Community Park Gym</li>
+        </ul>
+        <br />
+        <h5><b>Forward plans</b></h5>
+        <p><i>Over the Fence</i></p>
+        <p>The idea for this project is to help neighbours meet each other by providing some financial assistance for the hosting neighbour(s) to have a morning or afternoon tea, bbq etc – which could be at one neighbours house, or the nearest park etc. There are also some materials to go with that e.g. sample invitations and guides on what to do.</p>
+        <p>However, the project needs some new volunteers to take it up and make it happen. Let us know if you might be interested in working with others on this.</p>
+        <br />
+        <h5><b>Current volunteer opportunities for Stronger Neighbourhoods</b></h5>
+        <table class="highlight responsive-table">
+            <thead>
+                <tr>
+                    <td><b>Task</b></td>
+                    <td><b>Commitment</b></td>
+                    <td><b>What's Involved?</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Over the Fence Project</td>
+                    <td>Attend meetings – frequency to be decided</td>
+                    <td>Developing the project so it’s ready to launch</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </div>
+</div>
+

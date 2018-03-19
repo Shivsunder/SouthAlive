@@ -1,0 +1,97 @@
+﻿@model IEnumerable<SouthAlive.Models.VenueBooking>
+@functions{
+    private string timeText(TimeSpan time)
+    {
+        int hour = time.Hours;
+        int minute = time.Minutes;
+        string ext = "AM";
+        if (hour > 12) { hour -= 12; ext = "PM"; }
+        else if (hour == 12) { ext = "PM"; }
+        if (minute == 0) { ext = "00 " + ext; }
+        else { ext = minute + " " + ext; }
+        return hour + ":" + ext;
+    }
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    List<VenueBooking> bookings = Model.ToList();
+    bookings.Sort();
+}
+
+@section styles{
+    <style>
+        .venue-hover {
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .VenuTitle {
+            padding: 20px;
+            background: #808080;
+            color: #fff;
+        }
+
+        .forAdmin {
+            margin-top: -30px;
+        }
+    </style>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="VenuTitle sr-zero-btn1 z-depth-1">
+                <h3 class="center"><b>Events</b></h3>
+            </div>
+        </div>
+    </div>
+
+
+    @foreach (VenueBooking book in bookings)
+                {
+                    DateTime booking = new DateTime(book.Year,book.Month,book.Day);
+                    if (book.IsPublic && book.IsApproved && DateTime.Now<booking.AddDays(1))
+                    {
+                    <div class="col m12 hoverable" style="padding:10px;">
+                        <div class="row">
+                            <div class="col s3">
+                                @if (book.BookingImages == null)
+            {
+                        <img class="responsive-img img-thumbnail" src="/images/brand/square.jpg" width="150">
+}
+else
+{
+                        <img class="responsive-img img-thumbnail" src="@book.BookingImages[0].ImagePath" width="150">
+}
+                            </div>
+                            <!--
+                            <div class="col s3">
+
+                                <h5><a href="">@book.EventName</a></h5>
+                            </div>-->
+                            <div class="col s3">
+                                <h5>@book.EventName</h5>
+                                @book.Day/@book.Month/@book.Year<br />
+                                @timeText(book.StartTime) to @timeText(book.EndTime)
+                            </div>
+                            <div class="col s6" >
+                                @if (!book.Venue.IsSecret)
+                                {
+                                    <h5>@book.Venue.VenueName</h5>
+                                }
+                                else
+                                {
+                                    <h5>Where:</h5>
+                                }
+                                @book.Description
+                            </div>
+
+                        </div>
+                    </div>
+            }
+        }
+
+
+</div>

@@ -1,0 +1,161 @@
+﻿@{
+    ViewData["Title"] = "ORGANISATION";
+}
+@section styles{
+
+    <style>
+        .TeamTitle {
+            padding: 30px;
+            color: white;
+            background: orange;
+        }
+
+        #ORGANISATION_IMG, #ORGANISATION_Chart {
+            margin: 0;
+            padding: 0;
+        }
+        #ORGANISATION_ChartImg {
+            max-height:500px;
+
+        }
+
+        .StrPlan {
+            padding: 20px!important;
+            margin-bottom:5px;
+        }
+
+        .PlanUl > div > ul > li {
+            list-style:disc;
+            margin-left:20px;
+        }
+        .StrPlanText {
+            background: black;
+            color: white;
+            padding-left:20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+    </style>
+
+}
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a class="breadcrumb dropdownAbout" href="#" data-activates='dropdownAbout'>About</a>
+            <span class="breadcrumb">Introduction</span>
+        </div>
+    </div>
+</nav>
+
+<!-- Dropdown Structure -->
+<ul id='dropdownAbout' class='dropdown-content'>
+    <li><a href="/About/Introduction">INTRODUCTION</a></li>
+    <li><a href="/About/Organisation">ORGANISATION</a></li>
+    <li><a href="/About/Teams_And_Projects">TEAMS & PROJECTS</a></li>
+    <li><a href="/About/Results">RESULTS</a></li>
+    <li><a href="/About/SponsorInformation">SPONSER INFORMATION</a></li>
+    <li><a href="/About/LocalInformation">LOCAL INFORMATION</a></li>
+    <li><a href="/About/Contact">CONTACT</a></li>
+</ul>
+
+<div class="container">
+    <div class="col s12">
+        <div class="sr-zero-btn1">
+            <h3 class="center TeamTitle z-depth-1"><b>Organisation</b></h3><br />
+        </div>
+        <div class="col s12 sr-zero-btn5" id="ORGANISATION_IMG">
+            <img class="responsive-img z-depth-1 mx-auto" src="~/images/about/Organization/organisationBanner2.jpg" alt="ABOUT US" />
+        </div>
+        <br /><br />
+        <h4><b>South Alive Board</b></h4><br />
+        <p class="flow-text">South Alive is governed by a board of Trustees. Current members are:</p>
+        <p class="flow-text">Robyn Hickman – (Chair) Principal, Aurora College</p>
+        <p class="flow-text">Colin Anderson, (Immediate past Chair) – Invercargill South Rotary</p>
+        <p class="flow-text">Marie Crowe, (Treasurer) – Neighbourhood Support</p>
+        <p class="flow-text">Margaret Cook – Habitat for Humanity</p>
+        <p class="flow-text">Gayle Hammond (nurse and local ratepayer)</p>
+        <p class="flow-text">Peggy Peek – Murihiku Marae</p>
+        <p class="flow-text">Geoff Thompson – Retired, local ratepayer</p>
+        <p class="flow-text">Steve Jo - Local Pharmacist</p>
+        <p class="flow-text">Jody Conway - Nga Hau e Wha marae, Fernworth Primary School Board</p>
+        <p class="flow-text">Although Trustees are appointed as individuals in their own right, we have shown their main affiliation in the above list to provide an idea of the diverse knowledge and backgrounds of the trustees.</p>
+
+        <br /><br />
+        <h4 class="center"><b>South Alive Organisation Structure</b></h4><br />
+        <div class="col s10 push-s1 center" id="ORGANISATION_Chart">
+            <img class="responsive-img z-depth-1" id="ORGANISATION_ChartImg" src="~/images/about/Organization/organisationalChart.png" alt="ABOUT US" />
+        </div>
+        <br /><br /><br />
+        <h4 class="text-center"><b>Strategic Plan</b></h4><br />
+        <p class="flow-text">Our current strategic plan covers 2013-3015. The four goals, and strategies are summarised below. You can read the whole plan, with projects and milestones here</p>
+
+        <h3 class="text-center StrPlanText">Strategic plan 2015-2016</h3>
+        <br />
+        <div class="row PlanUl">
+
+            <div class="col m6 white StrPlan mx-auto hoverable">
+                <h5><b>Goal 1 - UPGRADE</b></h5>
+                <ul>
+                    <li>Making South Invercargill look better and work better by improving function and beauty.</li>
+                </ul>
+                <h6><b>Strategies</b></h6>
+                <ul>
+                    <li>Beautification and upgrading of public and private spaces.</li>
+                    <li>Increase and improve amenities</li>
+                </ul>
+            </div>
+
+            <div class="col m6 white StrPlan mx-auto hoverable">
+                <h5><b>Goal 2 - COMMUNITY</b></h5>
+                <ul class="PlanUl">
+                    <li>Build community identification, pride, participation & connection</li>
+                </ul>
+                <h6><b>Strategies</b></h6>
+                <ul>
+                    <li>South Alive fulfils a co-ordinating and connecting role in South Invercargill.</li>
+                    <li>Communicate and promote achievements to volunteers, supporters and the general public.</li>
+                </ul>
+                <h6><b>Develop or support events and projects that:</b></h6>
+                <ul>
+                    <li>Promote community participation and/or inccrease community pride and/or showcase the community.</li>
+                    <li>Events and projects thast bring the community together, increase participation or pride or showcase the community</li>
+                </ul>
+            </div>
+
+            <div class="col m6 white StrPlan mx-auto hoverable">
+                <h5><b>Goal 3 - RESOURCEFULNESS</b></h5>
+                <ul>
+                    <li>Building community capability, resourcefulness and confidence.</li>
+                </ul>
+                <h6><b>Strategies</b></h6>
+                <ul>
+                    <li>Assisting community to identify issues and opportunities.</li>
+                    <li>Developing strong strategic relationships and partnerships.</li>
+                    <li>Developing linkages, partnerships and collaboration among sectors and neighbourhoods in the community.</li>
+                    <li>Providing opportunities to develop required skills.</li>
+                </ul>
+            </div>
+
+            <div class="col m6 white StrPlan mx-auto hoverable">
+                <h5><b>Goal 4 - GOVERNANCE CAPACITY</b></h5>
+                <ul>
+                    <li>South alive continues to developer goveranace capabilities of Board and South Alive as an effective organisation.</li>
+                </ul>
+                <h6><strong>Strategies</strong></h6>
+                <ul>
+                    <li>The South Alive Board is competent, compliant and locally connected.</li>
+                    <li>South Alive has sufficient volunteers with the right skills, representive of the community.</li>
+                    <li>South Alive builds partnerships which facilitate access to sufficient funcing and in kind contributions to carry out its projects.</li>
+                </ul>
+                <h6><b>Effective systems and processes for:</b></h6>
+                <ul>
+                    <li>Performance and measurement.</li>
+                    <li>Financial measurement</li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+</div>

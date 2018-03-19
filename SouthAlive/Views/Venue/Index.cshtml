@@ -1,0 +1,185 @@
+﻿@model IEnumerable<SouthAlive.Models.Venue>
+
+@{
+    ViewData["Title"] = "Manage";
+    string[] fullDays = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+    string[] shortdays = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
+}
+
+@functions{
+    private string time(TimeSpan t)
+    {
+        int h = t.Hours;
+        string s = "" + t.Minutes;
+        if (s.Length == 1) { s = "0" + s; }
+        if (h >= 12) { s = s + " PM"; }
+        else { s = s + " AM"; }
+        h = h % 12;
+        if (h == 0) { h = 12; }
+        s = h + ":" + s;
+        return s;
+    }
+}
+
+@section styles{
+    <style>
+        .venue-hover {
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .VenuTitle {
+            padding: 20px;
+            background: #808080;
+            color: #fff;
+        }
+        .forAdmin{
+            margin-top:-30px;
+        }
+    </style>
+}
+
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <span class="breadcrumb">Venues</span>
+        </div>
+    </div>
+</nav>
+@if (User.IsInRole("Admin"))
+{
+    <div class="forAdmin card-panel yellow lighten-3">
+        <a class="grey-text text-darken-1 hoverable" style="padding:5px;" href="/Venue/ViewBookings">
+             View All Bookings
+        </a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="grey-text text-darken-1 hoverable" href="/Venue/Approve">
+             Approve Bookings
+        </a>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="grey-text text-darken-1 hoverable" href="/Venue/Add">
+             Add Venue
+        </a>
+    </div>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="VenuTitle sr-zero-btn1 z-depth-1">
+                <h3 class="center"><b>Venue List</b></h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        @foreach (Venue venue in Model)
+        {
+            if ((!venue.IsSecret) || User.IsInRole("Admin"))
+            {
+                <div class="col m12 hoverable" style="padding:10px;">
+                    <div class="row">
+                        <div class="col s3">
+                            @if (venue.VenueImages == null)
+                            {
+                                <img class="responsive-img img-thumbnail" src="/images/brand/square.jpg">
+                            }
+                            else
+                            {
+                                <img class="responsive-img img-thumbnail" src="@venue.VenueImages[0].ImagePath">
+                            }
+                        </div>
+                        <div class="col s5">
+                            <h3><a href="/Venue/Book?id=@venue.VenueId">@venue.VenueName</a></h3>
+                            @venue.Description<br>
+                            @venue.Address<br>
+                            @if (venue.VenueTimesOptions.Name == "Custom")
+                            {
+                                if (venue.VenueCustomDays.Count == 1)
+                                { <span>@fullDays[venue.VenueCustomDays[0].Day]s: @time(venue.VenueCustomDays[0].OpenTime) - @time(venue.VenueCustomDays[0].CloseTime)</span> }
+                                else if (venue.VenueCustomDays.Count == 2)
+                                {
+                                    int num0 = venue.VenueCustomDays[0].Day;
+                                    int num1 = venue.VenueCustomDays[1].Day;
+                                    if (num0 > num1) { int a = num0; num0 = num1; num1 = a; }
+                                    if (num0 == 0 && num1 == 6)
+                                    { <span>Weekends</span>}
+                                    else
+                                    {
+                                        string stime = "";
+                                        if (venue.VenueCustomDays[0].OpenTime == venue.VenueCustomDays[1].OpenTime && venue.VenueCustomDays[0].CloseTime == venue.VenueCustomDays[1].CloseTime)
+                                        {
+                                            stime = ": " + time(venue.VenueCustomDays[0].OpenTime) + " - " + time(venue.VenueCustomDays[0].CloseTime);
+                                        }
+                                        <span>@fullDays[num0] and @fullDays[num1]@stime</span>
+                                    }
+                                }
+                                else if (venue.VenueCustomDays.Count == 7)
+                                {
+                                    <span>7 Days a Week</span>
+                                }
+                                else
+                                {
+                                    bool[] dayref = { false, false, false, false, false, false, false };
+                                    TimeSpan open;
+                                    TimeSpan close;
+                                    bool init = true;
+                                    bool consistant = true;
+                                    foreach (VenueCustomDay day in venue.VenueCustomDays)
+                                    {
+                                        dayref[day.Day] = true;
+                                        if (init) { open = day.OpenTime; close = day.CloseTime; init = false; }
+                                        else if (open != day.OpenTime || close != day.CloseTime) { consistant = false; }
+                                    }
+                                    init = true;
+                                    bool cont = true;
+                                    string def = "";
+                                    int first = 0;
+                                    int last = 0;
+                                    for (int i = 0; i < 7; i++)
+                                    {
+                                        if (dayref[i])
+                                        {
+                                            if (init) { def = shortdays[i]; init = false; first = i; }
+                                            else
+                                            {
+                                                def += ", " + shortdays[i];
+                                                if (dayref[i - 1] && cont) { last = i; }
+                                                else { cont = false; }
+                                            }
+                                        }
+                                    }
+                                    string stime = "";
+                                    if (consistant) { stime = ": " + time(open) + " - " + time(close); }
+                                    if (cont)
+                                    {
+                                        <span>@shortdays[first] - @shortdays[last]@stime</span>
+                                    }
+                                    else
+                                    {
+                                        <span>@def@stime</span>
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                <span>@venue.VenueTimesOptions.Name: @time(venue.VenueCustomDays[0].OpenTime) - @time(venue.VenueCustomDays[0].CloseTime)</span>
+                            }
+                        </div>
+                        <div class="col s4">
+                            <a href="/Venue/Book?id=@venue.VenueId" class="btn">Book</a>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <a href="/Venue/Edit?id=@venue.VenueId" class="btn btn-danger float-right" style="margin:5px;">Edit</a>
+                                <a href="/Venue/Remove?id=@venue.VenueId" class="btn btn-danger float-right" style="margin:5px;">Remove</a>
+
+                                <a href="/Venue/ViewBookings?id=@venue.VenueId" class="btn btn-default float-right"style="margin:5px;">View Bookings</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+
+</div>

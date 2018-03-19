@@ -1,0 +1,12 @@
+C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\bin\Release\netcoreapp2.0\SouthAlive.deps.json
+C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\bin\Release\netcoreapp2.0\SouthAlive.runtimeconfig.json
+C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\bin\Release\netcoreapp2.0\SouthAlive.runtimeconfig.dev.json
+C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\bin\Release\netcoreapp2.0\SouthAlive.dll
+C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\bin\Release\netcoreapp2.0\SouthAlive.pdb
+C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\obj\Release\netcoreapp2.0\SouthAlive.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\obj\Release\netcoreapp2.0\SouthAlive.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\obj\Release\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\obj\Release\netcoreapp2.0\SouthAlive.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\obj\Release\netcoreapp2.0\SouthAlive.AssemblyInfo.cs
+C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\obj\Release\netcoreapp2.0\SouthAlive.dll
+C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\obj\Release\netcoreapp2.0\SouthAlive.pdb

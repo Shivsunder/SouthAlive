@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["Title"] = "Local Information";
+}
+@section styles{
+
+    <style>
+        .LocalInformationTitle {
+            padding: 30px;
+            color: white;
+            background: #63bf97;
+        }
+
+        #LocalInformation_IMG {
+            margin: 0;
+            padding: 0;
+        }
+
+            #LocalInformation_IMG > img {
+                width: 100%;
+            }
+
+        .CensusCharts > #Census {
+            color: white;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        @@media screen and (min-width:1000px) {
+            .CensusCharts > img {
+                max-width: 70%
+            }
+        }
+    </style>
+
+}
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a class="breadcrumb dropdownAbout" href="#" data-activates='dropdownAbout'>About</a>
+            <span class="breadcrumb">Introduction</span>
+        </div>
+    </div>
+</nav>
+
+<!-- Dropdown Structure -->
+<ul id='dropdownAbout' class='dropdown-content'>
+    <li><a href="/About/Introduction">INTRODUCTION</a></li>
+    <li><a href="/About/Organisation">ORGANISATION</a></li>
+    <li><a href="/About/Teams_And_Projects">TEAMS & PROJECTS</a></li>
+    <li><a href="/About/Results">RESULTS</a></li>
+    <li><a href="/About/SponsorInformation">SPONSER INFORMATION</a></li>
+    <li><a href="/About/LocalInformation">LOCAL INFORMATION</a></li>
+    <li><a href="/About/Contact">CONTACT</a></li>
+</ul>
+
+<div class="container">
+    <div class="col l12">
+        <div class="sr-zero-btn1">
+            <h3 class="center LocalInformationTitle z-depth-1"><b>Local Information</b></h3><br />
+        </div>
+        <div class="col l12 center sr-zero-btn5" id="LocalInformation_IMG">
+            <img class="responsive-img z-depth-1" src="~/images/about/LocalInformation/localbanner.jpg" alt="ABOUT US" />
+        </div>
+
+        <br />
+
+        <h4>Southland</h4>
+        <p class="flow-text">Southland, sometimes referred to as ‘the real New Zealand’, is somewhat off the beaten track. It is the second largest region in New Zealand and the most sparsely populated with 93,339 people at the 2013 census. It has a vast array of lakes, rivers, mountains and open plains and includes the Fiordland National Park, Stewart Island/Rakiura and the Catlins within its territory.</p>
+        <p class="flow-text">The rugged coastline, stretching 3,400 kilometres, is mostly free of development and is home to countless species of native wildlife. Due to its closer proximity to the South Pole, the Aurora Australis or "Southern Lights" are more commonly seen in Southland than in other regions. The region is also known for its diverse and plentiful types of stone, with artists referring to the region as ‘the supermarket of stone’.</p>
+
+        <hr />
+        <br />
+
+        <h4>Invercargill</h4>
+        <p class="flow-text">Invercargill, with a population of 51,696 (2013) is the most southern, and western, city in New Zealand. It is a thriving service centre with a strong student presence through the Southern Institute of Technology’s Zero Fees scheme. Its history marries the strong Maori and Celtic influence that pioneered the province centuries ago.</p>
+        <p class="flow-text">Invercargill is predominately flat, making walking easy and giving elevated sites in the south of the city virtually unobstructed views of the Takitimu Mountains to the north and Mt Anglem, on Stewart Island/Rakiura, to the south. The city is known for its 40 metres wide main streets which were laid out by surveyor John Turnbull Thomson in the 1850’s.</p>
+
+        <hr />
+        <br />
+
+        <h4>History of Invercargill</h4>
+        <p class="flow-text">Resources for stone tool making and bountiful fish and birds attracted seafaring Maori to Bluff some seven hundred years ago. Other smaller settlements were based on the rivers around where Invercargill is today. Each Maori settlement had its own name and the region we now call Southland, is referred to by Maori as Murihiku. According to legend, Murihiku is the tail end of the South Island which was referred to as a waka.</p>
+        <p class="flow-text">The first Europeans to set foot on the South Island’s southern coast were sealers in the late 1700s. Others intent on harvesting flax came in the early 1800s and whalers began arriving from 1829. Sailors, traders, and entrepreneurs followed. Maori quickly became involved in the growing economy. They were instrumental in the flax trade, whaling and supplying ships with food.</p>
+        <p class="flow-text">Although Bluff was settled in 1824, Invercargill started to take shape when people from the Scottish settlement of Dunedin began buying land for sheep runs in the far south. These farmers needed to import stock from Australia, so in 1856 they presented a petition to Thomas Gore Browne, the Governor of New Zealand, for a port at Bluff. The Governor consented and at the same time suggested a corresponding township be called Invercargill. He wanted to pay tribute to William Cargill, a high profile Scottish pioneer involved in the administration and settlement of the Otago/Southland region.</p>
+
+        <hr />
+        <br />
+
+        <h4>About South Invercargill</h4>
+        <p class="flow-text">The area of Appleby in South Invercargill is among the oldest residential parts of town. As such, it has a long and proud history, and was governed by its own Borough Council until 1956 when it reluctantly merged with the city of Invercargill. It’s current population is around 18,000 people and it is also home to the greater proportion of Invercargill’s Maori and Pacific Island residents. Three out of the four Invercargill marae (the fourth being located in Bluff) are located in South Invercargill.</p>
+        <p class="flow-text">It suffered some economic, political and social setbacks in the 1990s through to around 2008 including industry and school closures and environmental issues but is now rebounding, in part through the work of South Alive.</p>
+
+        <hr />
+        <br />
+
+        <h4>Historical Notes</h4>
+        <p class="flow-text">The land was formerly heavily forested with tall kahikatea, rimu, matai, miro and totara and even 200 years ago there were no human settlements. In pre-human times it was inhabited by birds such as moa, kakapo and adzebill.</p>
+        <p class="flow-text">Once the settlers came they felled trees, and locomotives and sawmill tram lines crisscrossed the area. Many of the houses in South Invercargill were built using this timber. The first farmer was Peter Dalrymple who had a 50 acre block just south of Dalrymple Street, which was known as Appleby.</p>
+        <p class="flow-text">Nearby, tall ships would sail into the Invercargill harbour and at one time, in the height of the gold rush in the 1860s, there were 30 sailing ships anchored in the estuary in one day.</p>
+        <p class="flow-text">Captain Elles, for whom Elles Road is named, was the commander of an immigrant ship called the Philip Laing. He stayed and became Collector of Customs at Bluff and New River. He was also the resident magistrate, harbourmaster and postmaster. He retired in 1880 having served the town for 24 years.</p>
+        <p class="flow-text">South Invercargill has a history of tall and imposing structures – ships and signal masts, tall trees, and its natural elevation in terms of the surrounding land</p>
+
+        <hr />
+        <br />
+
+
+    </div>
+
+    <div class="col-lg-12 CensusCharts">
+        <h3 class="center teal z-depth-1" id="Census">Information from the 2013 Census</h3>
+    </div>
+
+
+    <div class="col l12 CensusCharts center">
+        <img class="responsive-img" src="~/images/about/LocalInformation/stat1.jpg" alt="Alternate Text" />
+    </div>
+    <div class="col l12 CensusCharts center">
+        <img class="responsive-img" src="~/images/about/LocalInformation/stat2.jpg" alt="Alternate Text" />
+    </div>
+    <div class="col l12 CensusCharts center">
+        <img class="responsive-img" src="~/images/about/LocalInformation/stat3.jpg" alt="Alternate Text" />
+    </div>
+    <div class="col l12 CensusCharts center">
+        <img class="responsive-img" src="~/images/about/LocalInformation/stat4.jpg" alt="Alternate Text" />
+    </div>
+</div>

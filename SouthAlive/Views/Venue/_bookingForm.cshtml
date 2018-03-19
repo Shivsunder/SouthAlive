@@ -1,0 +1,121 @@
+﻿@{
+    VenueCustomDay day = ViewBag.Venue.VenueCustomDays[0];
+    DateTime tmp = new DateTime(ViewBag.year, ViewBag.month, ViewBag.day);
+    foreach (VenueCustomDay d in ViewBag.Venue.VenueCustomDays)
+    {
+        if (d.Day == (int)tmp.DayOfWeek)
+        {
+            day = d;
+        }
+    }
+}
+@functions{
+    private string timeText(TimeSpan time)
+    {
+        int hour = time.Hours;
+        int minute = time.Minutes;
+        string ext = "AM";
+        if (hour > 12) { hour -= 12; ext = "PM"; }
+        else if (hour == 12) { ext = "PM"; }
+        if (minute == 0) { ext = "00 " + ext; }
+        else { ext = minute + " " + ext; }
+        return hour + ":" + ext;
+    }
+}
+
+<form action="/Venue/RequestBooking" method="post" enctype="multipart/form-data">
+    <input type="hidden" value="@ViewBag.id" name="id">
+    <input type="hidden" value="@ViewBag.day" name="day">
+    <input type="hidden" value="@ViewBag.month" name="month">
+    <input type="hidden" value="@ViewBag.year" name="year">
+    When would you like to book the venue?<br>
+    @{
+        TimeSpan time = day.OpenTime;
+        int index = 0;
+    }
+    <select name="startTime" id="startTime" onchange="reprice()" style="display:block">
+        @while (time.CompareTo(day.CloseTime) < 0)
+        {
+            bool go = true;
+            if (ViewBag.Venue.VenueBookings != null)
+            {
+                foreach (VenueBooking v in ViewBag.Venue.VenueBookings)
+                {
+                    if (v.IsApproved && v.Year == ViewBag.year && v.Month == ViewBag.month && v.Day == ViewBag.day && time.CompareTo(v.StartTime) >= 0 && time.CompareTo(v.EndTime) < 0) { go = false; }
+                }
+            }
+            if (go)
+            {
+    <option value="@time"> @timeText(time) </option> }
+            else
+            {
+    <option value="@time" disabled="disabled" id="booked"> @timeText(time) </option> }
+
+            time = time.Add(new TimeSpan(0, 30, 0));
+            index++;
+        }
+    </select><br>
+    Untill<br>
+    @{
+        time = day.OpenTime.Add(new TimeSpan(0, 30, 0));
+        index = 0;
+    }
+    <select name="endTime" id="endTime" onchange="reprice()" style="display:block">
+        @while (time.CompareTo(day.CloseTime) <= 0)
+        {
+            bool go = true;
+            if (ViewBag.Venue.VenueBookings != null)
+            {
+                foreach (VenueBooking v in ViewBag.Venue.VenueBookings)
+                {
+                    if (v.IsApproved && v.Year == ViewBag.year && v.Month == ViewBag.month && v.Day == ViewBag.day && time.CompareTo(v.StartTime) > 0 && time.CompareTo(v.EndTime) <= 0) { go = false; }
+                }
+            }
+            if (go)
+            {
+    <option value="@time" id=""> @timeText(time) </option> }
+            else
+            {
+    <option value="@time" disabled="disabled" id="booked"> @timeText(time) </option> }
+            time = time.Add(new TimeSpan(0, 30, 0));
+            index++;
+        }
+    </select><br>
+
+    <div class="input-field col s12">
+        <input id="EventName" name="EventName" type="text" class="validate">
+        <label for="EventName">Event Name (Optional)</label>
+    </div>
+    <div class="input-field col s12">
+        <textarea id="description" name="description" type="text" class="validate"></textarea>
+        <label for="description">Description (Optional)</label>
+    </div>
+    <input type="checkbox" name="IsPublic" id="IsPublic" class="filled-in"/>
+    <label for="IsPublic">Public</label>
+    <br />
+    <div class="file-field input-field">
+        <div class="btn">
+            <span>File</span>
+            <input type="file" name="Images" multiple>
+        </div>
+        <div class="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="Upload one or more files">
+        </div>
+    </div>
+    @if (ViewBag.Venue.IsSecret)
+    {
+        <div class="input-field col s12">
+            <input id="VenueName" name="VenueName" type="text" class="validate">
+            <label for="VenueName">Venue Name</label>
+        </div>
+        <div class="input-field col s12">
+            <input id="Location" name="Location" type="text" class="validate">
+            <label for="Location">Location</label>
+        </div>
+    }
+    else
+    {
+    <div id="cost">Cost: @string.Format("{0:C2}", ((double)ViewBag.Venue.Price) / 2)</div>
+    }
+    <input class="btn green" type="submit" value="Book">
+</form>

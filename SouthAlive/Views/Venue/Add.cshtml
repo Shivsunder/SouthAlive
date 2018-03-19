@@ -1,0 +1,173 @@
+﻿@{
+    ViewData["Title"] = "Manage";
+}
+
+@section styles{
+   <style>
+        .venue-title{
+            padding:20px;
+        }
+        #customdiv{
+            border:1px solid grey;
+            padding:20px;
+        }
+    </style>
+}
+<script type="text/javascript" src="~/Scripts/ManageVenue.js"></script>
+
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="/Venue" class="breadcrumb">Venues</a>
+            <span class="breadcrumb">Add Venues</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col m10 push-m1 jumbotron">
+            <form>
+                <h3 class="center grey darken-1 white-text venue-title">Adding Venue</h3><br />
+                
+                <div class="input-field col s10 push-s1">
+                    <i class="fa fa-home prefix grey-text"></i>
+                    <input id="Name" type="text" class="validate">
+                    <label for="Name">Name</label>
+                </div>
+
+                <div class="input-field col s10 push-s1">
+                    <i class="fa fa-pencil prefix grey-text"></i>
+                    <textarea id="Description" type="text" class="validate materialize-textarea"></textarea>
+                    <label for="Description">Description</label>
+                </div>
+
+                <div class="input-field col s10 push-s1">
+                    <i class="fa fa-map-pin prefix grey-text"></i>
+                    <input id="Address" type="text" class="validate">
+                    <label for="Address">Address</label>
+                </div>
+
+                <div class="input-field col s10 push-s1">
+                    <i class="fa fa-map-pin prefix grey-text"></i>
+                    <input id="Price" type="number" class="validate">
+                    <label for="Price">Price Per Hour</label>
+                </div>
+         
+
+            </form>
+            <div class="col s12">
+                <h3 class="center grey darken-1 white-text text-darken-1 venue-title">Available Time Option</h3>
+            </div>
+            
+            <div class="row">
+                <div class=" col s10 push-s1">
+                    <label for="timetype">Choose option:</label>
+                    <select class="form-control" onchange="change()" id="timetype">
+                        @{
+                            foreach (VenueTimesOptions item in ViewBag.VenueTimesOptions)
+                            {
+                                <option value="@item.VenueTimesOptionsId">@item.Name</option>
+                            }
+                        }
+                    </select><br><br>
+                </div>
+                <div class=" col s10 push-s1">
+                    <div id="predefined">
+                            <label for="open">Opening Time</label>
+                            <input type="text" id="open" class="timepicker">                         
+                            <label for="close">Closing Time</label>
+                            <input type="text" id="close" class="timepicker">                        
+                    </div>
+                    
+                    <div id="custom" style="display:none;">
+                        <div id="customdiv">
+                            <a href="#day0" data-toggle="collapse" data-parent="#customdiv">
+                            <h4 class="center">Select day(Custom)</h4></a>
+                            <div id="day0" class="collapse in">
+                                <h5>Day</h5>
+                                <select class="form-control" id="sday0" onchange="changeday(0)">
+                                    <option value="0">Sunday</option>
+                                    <option value="1">Monday</option>
+                                    <option value="2">Tuesday</option>
+                                    <option value="3">Wednesday</option>
+                                    <option value="4">Thursday</option>
+                                    <option value="5">Friday</option>
+                                    <option value="6">Saturday</option>
+                                </select><br><br>
+                                <h5>Opening Time</h5>
+                                <input type="text" id="open0" class="timepicker" onchange="updatemin(1)" /><br><br>
+                                <h5>Closing Time</h5>
+                                <input type="text" id="close0" class="timepicker" onchange="updatemax(1)" /><br><br />
+                            </div>
+                            <div class="center">
+                                <button onclick="addDay()" class="btn waves-effect">Add Day</button><br><br>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col m4 push-m4">
+                <button onclick="send()" class="btn waves-effect" style="width:100%">Create Venue</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery-datetimepicker/jquery.datetimepicker.js"></script>
+    <script>
+        $('.timepicker').pickatime({
+            default: 'now', // Set default time: 'now', '1:30AM', '16:30'
+            fromnow: 0,       // set default time to * milliseconds from now (using with default = 'now')
+            twelvehour: true, // Use AM/PM or 24-hour format
+            donetext: 'OK', // text for done-button
+            cleartext: 'Clear', // text for clear-button
+            canceltext: 'Cancel', // Text for cancel-button
+            autoclose: false, // automatic close timepicker
+            ampmclickable: true, // make AM PM clickable
+            aftershow: function () { } //Function for after opening timepicker
+        });
+        //$.datetimepicker.setDateFormatter({
+        //    parseDate: function (date, format) {
+        //        var d = moment(date, format);
+        //        return d.isValid() ? d.toDate() : false;
+        //    },
+
+        //    formatDate: function (date, format) {
+        //        return moment(date).format(format);
+        //    }
+        //});
+
+        //$('#open').datetimepicker({
+        //    datepicker: false,
+        //    format: 'h:mm:00',
+        //    allowTimes:[
+        //        '09:00','10:00','11:00',
+        //        '12:00', '13:00', '14:00',
+        //        '15:00', '16:00', '17:00'
+        //    ]
+      
+        //});
+        //$('#close').datetimepicker({
+        //    datepicker: false,
+        //    format: 'h:mm:00',
+        //    allowTimes: [
+        //        '09:00', '10:00', '11:00',
+        //        '12:00', '13:00', '14:00',
+        //        '15:00', '16:00', '17:00'
+        //    ]
+
+        //});
+
+        //$('#open').on('change', function () {
+        //    console.log($(this).val());
+
+        //})
+
+    </script>
+}

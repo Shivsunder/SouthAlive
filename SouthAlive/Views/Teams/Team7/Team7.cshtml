@@ -1,0 +1,162 @@
+﻿@inject UserManager<ApplicationUser> userManager
+
+@section Styles{
+    <style>
+        .teamManager {
+            margin-top: 0;
+        }
+
+            .teamManager i {
+                position: relative;
+                top: 5px;
+            }
+
+        .team-img {
+            width: 100%;
+            height: auto;
+        }
+
+        #team1-Container > div:first-child > h3 {
+            padding: 20px 0;
+        }
+
+        #team1-Container ul {
+            margin-left: 10px;
+        }
+
+        .Bread {
+            margin-bottom: 0;
+        }
+    </style>
+}
+
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="/teams" class="breadcrumb">TEAMS</a>
+            <span class="breadcrumb">TEAM 7</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container" id="team1-Container">
+    <div>
+        <h3 class="center white-text green lighten-1">Team: The Fruit and Nut Tree Group</h3>
+    </div>
+
+    <div>
+        <img class="team-img" src="~/images/Teams/d09206c8-252f-4dc5-a033-9cb4d468858f_main.jpg" />
+
+        <br />
+        <h5>Convenor:</h5>
+        <p>Marie Crowe</p>
+        <p>Email: marieandtrev@xtra.co.nz</p>
+        <p>Tel: 216 5690 or 0272078575</p>
+        <br />
+        <h5>Purpose:</h5>
+        <p>To plant fruit trees in public places in South Invercargill that will provide fresh home grown fruit free for the picking. To teach South Alive residents how to grow and care for fruit trees.</p>
+        
+        <br />
+        <h5>What have we done?</h5>
+        <ul class="browser-default">
+            <li>Planted 15 feijoa trees at Aurora College for Arbour day and 5 feijoa trees at Fernworth Primary</li>
+            <li>Planted 71 fruit trees of various species in 6 public spaces in South Invercargill</li>
+            <li>Planted 3 fruit trees at New River Primary School</li>
+            <li>Organised a fruit tree grafting workshop for the community where participants learned how to graft, and were able to take home their tree for $5</li>
+            <li>Made or obtained mulch for 99% of our orchards</li>
+            <li>Maintaining all the trees and orchard areas</li>
+            <li>Fundraising barbecues to be almost self supporting for purchase of trees, equipment and vests</li>
+            <li>Locations where trees are planted – Ascot Tce; Ettrick Street; Dumbarton Park; Manse St; Dumbeath Street; Panton St Park; McQuarrie St Park; Wagner St</li>
+        </ul>
+
+        <br />
+        <h5>Forward Plan</h5>
+        <ul class="browser-default">
+            <li>Planting plan for 2015, which will be mainly fruiting bushes planted under existing trees</li>
+            <li>Pruning in the autumn</li>
+            <li>Another fruit tree grafting workshop</li>
+        </ul>
+        
+        <br />
+        <h5>Current volunteer opportunities with Fruit & Nuts</h5>
+        <table class="bordered highlight striped">
+            <thead>
+                <tr>
+                    <td><b>Task</b></td>
+                    <td><b>Commitment</b></td>
+                    <td><b>What's Involved?</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Join our Action Team</td>
+                    <td>Meet once monthly for approx 1 ½ hours</td>
+                    <td>To organise fund-raising(BBQ's) and plan the team’s activities</td>
+                </tr>
+                <tr>
+                    <td>Bag up mulch</td>
+                    <td>Once or twice yearly. Hours to suit</td>
+                    <td>Shovel mulch into bags and transport to where needed Pick up mulching material and drop off, plus mulching and transporting</td>
+                </tr>
+                <tr>
+                    <td>Help make the mulch</td>
+                    <td>If needed and when available. Hours to suit</td>
+                    <td>Pick up mulching material and drop off, plus mulching and transporting</td>
+                </tr>
+                <tr>
+                    <td>Chopping up onions for the fundraising BBQ</td>
+                    <td>Monthly approx 9kg between group</td>
+                    <td>Peel and chop up onions and put into ice cream containers and freeze</td>
+                </tr>
+                <tr>
+                    <td>Help with BBQ on the day</td>
+                    <td>BBQs held about every 6 weeks(1 or 2 hour shifts)t</td>
+                    <td>Cook or serve customers</td>
+                </tr>
+                <tr>
+                    <td>An extra car with a tow bar and a trailer</td>
+                    <td>As needed one to four times a year to transport mulch, trees</td>
+                    <td>Drive around south Invercargill from point A to point B</td>
+                </tr>
+                <tr>
+                    <td>Adopt a park where we have trees planted</td>
+                    <td>Weekly or when passing</td>
+                    <td>Checking on health of trees and weeding with help of group</td>
+                </tr>
+                <tr>
+                    <td>Mow the grass around the edge of an orchard</td>
+                    <td>When required</td>
+                    <td>Mow around edge of mulching with own mower</td>
+                </tr>
+                <tr>
+                    <td>Help with pruning of the trees Help with feeding of the orchards</td>
+                    <td>Once yearly pruning and seasonally for feeding</td>
+                    <td>At the moment our trees don't need much pruning</td>
+                </tr>
+                <tr>
+                    <td>Help plant trees</td>
+                    <td>Up to all day but any help appreciated</td>
+                    <td>Pick up trees ,transport , dig holesplant trees then stake and tie and have a general tidy up of site</td>
+                </tr>
+                <tr>
+                    <td>Help with weeding of the orchard</td>
+                    <td>Any time will be appreciated</td>
+                    <td>Spraying or pulling out weeds</td>
+                </tr>
+                <tr>
+                    <td>Make cups of tea coffee and putting out lunch when we have a working bee</td>
+                    <td>½ to 1 hour</td>
+                    <td>Make a cupper, set up the table with our lunch</td>
+                </tr>
+                <tr>
+                    <td>Help out at working bees</td>
+                    <td>Any off your spare time is more than welcome</td>
+                    <td>Any of above from light to heavy work</td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+    </div>
+</div>
+

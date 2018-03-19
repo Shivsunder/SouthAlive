@@ -1,0 +1,123 @@
+﻿@inject UserManager<ApplicationUser> userManager
+
+@section Styles{
+    <style>
+        .teamManager {
+            margin-top: 0;
+        }
+
+            .teamManager i {
+                position: relative;
+                top: 5px;
+            }
+
+        .team-img {
+            width: 100%;
+            height: auto;
+        }
+
+        #team1-Container > div:first-child > h3 {
+            padding: 20px 0;
+        }
+
+        #team1-Container ul {
+            margin-left: 10px;
+        }
+
+        .Bread {
+            margin-bottom: 0;
+        }
+    </style>
+}
+
+<nav class="Bread grey darken-1">
+    <div class="nav-wrapper">
+        <div class="col s12">
+            <a href="/" class="breadcrumb"><i class="fa fa-home" aria-hidden="true"></i></a>
+            <a href="/teams" class="breadcrumb">TEAMS</a>
+            <span class="breadcrumb">TEAM 5</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container" id="team1-Container">
+    <div>
+        <h3 class="center white-text purple darken-4">Team: Housing</h3>
+    </div>
+
+    <div>
+        <img class="team-img" src="~/images/Teams/housingbanner.jpg" />
+
+        <br />
+        <h5><b>Convenor:</b> Margaret Cook</h5>
+        <h5><b>Email:</b> margaret@thecooks.net.nz</h5>
+        <h5><b>Telephone:</b> 021 022 12120</h5>
+
+        <br />
+        <h5>Overview:</h5>
+        <p><i>Mission</i></p>
+        <p>We will encourage residents to invest time and energy into their homes to create a culture of dignity and self esteem.</p>       
+        <br />
+        <h5>What have we done?</h5>
+                
+        <table class="bordered highlight striped">
+            <thead>
+                <tr>
+                    <td><b>Issue</b></td>
+                    <td><b>Plan</b></td>
+                    <td><b>Result</b></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Concern about untidy empty sections being a health and fire risk, and an eyesore</td>
+                    <td>Encourage ICC to use/enforce bylaws to identify and get offending sections tidied up</td>
+                    <td>ICC actively managing situation, with regular monitoring programme. so far many sections cleaned up. Members of the public are commenting positively.</td>
+                </tr>
+                <tr>
+                    <td>Concern about derelict empty properties being fire and health risk</td>
+                    <td>ICC now has a register of these properties</td>
+                    <td>ICC now has strategy for addressing the issues. Legal issues dealt with. 9 houses already demolished</td>
+                </tr>
+                <tr>
+                    <td>Concern about derelict occupied houses</td>
+                    <td>Identify the properties and share information with ICC. Approach ICC to use the bylaws to address the issue</td>
+                    <td>Properties are identified and agreed. Project requires more legal action and will involve ICC and PHO. Strategy being developed</td>
+                </tr>
+                <tr>
+                    <td>Concern about Invercargill housing stock being prone to house fires</td>
+                    <td>Support fire service plan with letter to ILT to supply a new smoke alarm to every house in South Invercargill</td>
+                    <td>Letter sent to ILT. Positive response – the project is on their list. Fire Service now has a programme to upgrade smoke alarms where needed.</td>
+                </tr>
+                <tr>
+                    <td>Garden competition</td>
+                    <td>Two have been held, with seven categories in each</td>
+                    <td>Successfully completed. Will review in 2016.</td>
+                </tr>
+                <tr>
+                    <td>Encourage investment of time and energy to create healthy homes</td>
+                    <td>
+                        <ul class="browser-default">
+                            <li>Collaborate with local agencies like Fire Service, Police, Warm Homes Trust, Habitat for Humanity, ICC, Beautification group</li>
+                            <li>Further public meeting on eco efficient homes put on by ICC Eco Design Advisorp</li>
+                        </ul>
+                    </td>
+                    <td>3 meetings held for owner-occupiers, tenants, and later, landlords. Enthusiastic but small attendance numbers</td>
+                </tr>
+                <tr>
+                    <td>Encourage residents to invest time and energy to create attractive neighbourhoods.</td>
+                    <td>Hold Tenant of the year competition.</td>
+                    <td>Competition successfully held in December 2014. Next one planned for 2015 include both Tenants and Landlords.</td>
+                </tr>
+                <tr>
+                    <td>Concern about Invercargill housing stock being prone to house fires.</td>
+                    <td>Create an electric blanket testing station in the South Alive community hub.</td>
+                    <td>South City Electrical & Security tested over 50 blankets over 4 days in April 2015 for a donation of $2. This will be repeated next Autumn.</td>
+                </tr>
+            
+            </tbody>
+        </table>
+        <br />
+    </div>
+</div>
+

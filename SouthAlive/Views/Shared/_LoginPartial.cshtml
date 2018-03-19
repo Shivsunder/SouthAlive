@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using SouthAlive.Models
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <li>
+        <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
+
+            @*<span class="grey-text" style="display:inline-flex;font-size:1em;">Hello @UserManager.GetUserName(User)</span>*@
+
+            <button type="submit" class="btn btn-sm waves-effect waves-light" style="display:inline-flex">
+                <i class="fa fa-sign-in" aria-hidden="true" style="font-size:1em;line-height:3em">&nbsp;&nbsp;Log out</i>
+            </button>
+
+        </form>
+    </li>
+}
+else
+{
+        <li>
+            <a asp-area="" asp-controller="Account" asp-action="Login" class="btn waves-effect waves-light">
+                Sign In
+            </a>
+            <a asp-area="" asp-controller="Account" asp-action="Register" class="btn waves-effect waves-light">
+                Sign Up
+            </a>
+        </li>
+}
