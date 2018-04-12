@@ -28,6 +28,7 @@ namespace SouthAlive.Models
         public virtual int VenueId { get; set; }
         public virtual Venue Venue { get; set; }
 
+        public virtual EventDetail EventDetail { get; set; }
         public virtual List<BookingImages> BookingImages { get; set; }
 
         public virtual ApplicationUser User { get; set; }

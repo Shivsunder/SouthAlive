@@ -50,11 +50,13 @@
 
 
     @foreach (VenueBooking book in bookings)
-                {
-                    DateTime booking = new DateTime(book.Year,book.Month,book.Day);
-                    if (book.IsPublic && book.IsApproved && DateTime.Now<booking.AddDays(1))
-                    {
-                    <div class="col m12 hoverable" style="padding:10px;">
+    {
+        DateTime booking = new DateTime(book.Year,book.Month,book.Day);
+        string colour = "";
+        if (book.IsFeatured) { colour = "background-color: #FFFF55;"; }
+        if (book.IsPublic && book.IsApproved && DateTime.Now<booking.AddDays(1))
+        {
+                    <div class="col m12 hoverable" style="padding:10px;margin-bottom:10px;border-radius:7px;@colour">
                         <div class="row">
                             <div class="col s3">
                                 @if (book.BookingImages == null)
@@ -75,15 +77,23 @@ else
                                 <h5>@book.EventName</h5>
                                 @book.Day/@book.Month/@book.Year<br />
                                 @timeText(book.StartTime) to @timeText(book.EndTime)
+                                @if (!book.Venue.IsSecret)
+                                {
+                            <div>@book.Venue.Address</div>
+                                }
+                           else if (book.EventDetail != null)
+                                {
+                            <div>@book.EventDetail.VenueLocation</div>
+                            }
                             </div>
                             <div class="col s6" >
                                 @if (!book.Venue.IsSecret)
                                 {
                                     <h5>@book.Venue.VenueName</h5>
                                 }
-                                else
+                                else if(book.EventDetail!=null)
                                 {
-                                    <h5>Where:</h5>
+                                    <h5>@book.EventDetail.VenueName</h5>
                                 }
                                 @book.Description
                             </div>

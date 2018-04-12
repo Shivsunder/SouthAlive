@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SouthAlive.Data;
@@ -30,6 +31,7 @@ namespace SouthAlive.Controllers
             return View(await _context.Polyline.ToListAsync());
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ZeroRubbishList()
         {
             ViewBag.LineInfo = _context.LineInfo.ToList();
@@ -71,12 +73,37 @@ namespace SouthAlive.Controllers
 
         [HttpGet, ActionName("Delete")]
         //[ValidateAntiForgeryToken]
-        public IActionResult Delete(int id)
+        public async Task<IActionResult> Delete(int id)
+        {
+            var currentuser = await _usermanager.GetUserAsync(User);
+            Polyline poly = _context.Polyline.Find(id);
+            if (User.IsInRole("Admin") || currentuser.Id == poly.UserId)
+            {
+                _context.Polyline.Remove(poly);
+                _context.SaveChanges();
+            }
+            return (Redirect("/ZeroRubbish"));
+        }
+        
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public IActionResult Remove(int id)
         {
             Polyline poly = _context.Polyline.Find(id);
             _context.Polyline.Remove(poly);
             _context.SaveChanges();
-            return (Redirect("/ZeroRubbish"));
+            return (Redirect("/ZeroRubbish/ZeroRubbishList"));
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public IActionResult Check(int id)
+        {
+            Polyline poly = _context.Polyline.Find(id);
+            poly.LastChecked = DateTime.Now;
+            _context.Polyline.Update(poly);
+            _context.SaveChanges();
+            return (Redirect("/ZeroRubbish/ZeroRubbishList"));
         }
     }
 }

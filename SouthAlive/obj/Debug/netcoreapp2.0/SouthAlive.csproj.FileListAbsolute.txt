@@ -22,3 +22,27 @@ C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\obj\Debug\netcoreapp2.0\Sout
 C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\obj\Debug\netcoreapp2.0\SouthAlive.AssemblyInfo.cs
 C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\obj\Debug\netcoreapp2.0\SouthAlive.dll
 C:\Users\user\Desktop\SouthAlive v0.12.0\SouthAlive\obj\Debug\netcoreapp2.0\SouthAlive.pdb
+C:\Users\nbnic\Documents\Visual Studio 2017\Projects\SouthAlive-Master\SouthAlive-master\SouthAlive\bin\Debug\netcoreapp2.0\SouthAlive.deps.json
+C:\Users\nbnic\Documents\Visual Studio 2017\Projects\SouthAlive-Master\SouthAlive-master\SouthAlive\bin\Debug\netcoreapp2.0\SouthAlive.runtimeconfig.json
+C:\Users\nbnic\Documents\Visual Studio 2017\Projects\SouthAlive-Master\SouthAlive-master\SouthAlive\bin\Debug\netcoreapp2.0\SouthAlive.runtimeconfig.dev.json
+C:\Users\nbnic\Documents\Visual Studio 2017\Projects\SouthAlive-Master\SouthAlive-master\SouthAlive\bin\Debug\netcoreapp2.0\SouthAlive.dll
+C:\Users\nbnic\Documents\Visual Studio 2017\Projects\SouthAlive-Master\SouthAlive-master\SouthAlive\bin\Debug\netcoreapp2.0\SouthAlive.pdb
+C:\Users\nbnic\Documents\Visual Studio 2017\Projects\SouthAlive-Master\SouthAlive-master\SouthAlive\obj\Debug\netcoreapp2.0\SouthAlive.csprojResolveAssemblyReference.cache
+C:\Users\nbnic\Documents\Visual Studio 2017\Projects\SouthAlive-Master\SouthAlive-master\SouthAlive\obj\Debug\netcoreapp2.0\SouthAlive.csproj.CoreCompileInputs.cache
+C:\Users\nbnic\Documents\Visual Studio 2017\Projects\SouthAlive-Master\SouthAlive-master\SouthAlive\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\nbnic\Documents\Visual Studio 2017\Projects\SouthAlive-Master\SouthAlive-master\SouthAlive\obj\Debug\netcoreapp2.0\SouthAlive.AssemblyInfoInputs.cache
+C:\Users\nbnic\Documents\Visual Studio 2017\Projects\SouthAlive-Master\SouthAlive-master\SouthAlive\obj\Debug\netcoreapp2.0\SouthAlive.AssemblyInfo.cs
+C:\Users\nbnic\Documents\Visual Studio 2017\Projects\SouthAlive-Master\SouthAlive-master\SouthAlive\obj\Debug\netcoreapp2.0\SouthAlive.dll
+C:\Users\nbnic\Documents\Visual Studio 2017\Projects\SouthAlive-Master\SouthAlive-master\SouthAlive\obj\Debug\netcoreapp2.0\SouthAlive.pdb
+C:\Users\shivs\Desktop\SouthAliveFinal\SouthAlive\bin\Debug\netcoreapp2.0\SouthAlive.deps.json
+C:\Users\shivs\Desktop\SouthAliveFinal\SouthAlive\bin\Debug\netcoreapp2.0\SouthAlive.runtimeconfig.json
+C:\Users\shivs\Desktop\SouthAliveFinal\SouthAlive\bin\Debug\netcoreapp2.0\SouthAlive.runtimeconfig.dev.json
+C:\Users\shivs\Desktop\SouthAliveFinal\SouthAlive\bin\Debug\netcoreapp2.0\SouthAlive.dll
+C:\Users\shivs\Desktop\SouthAliveFinal\SouthAlive\bin\Debug\netcoreapp2.0\SouthAlive.pdb
+C:\Users\shivs\Desktop\SouthAliveFinal\SouthAlive\obj\Debug\netcoreapp2.0\SouthAlive.csprojResolveAssemblyReference.cache
+C:\Users\shivs\Desktop\SouthAliveFinal\SouthAlive\obj\Debug\netcoreapp2.0\SouthAlive.csproj.CoreCompileInputs.cache
+C:\Users\shivs\Desktop\SouthAliveFinal\SouthAlive\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\shivs\Desktop\SouthAliveFinal\SouthAlive\obj\Debug\netcoreapp2.0\SouthAlive.AssemblyInfoInputs.cache
+C:\Users\shivs\Desktop\SouthAliveFinal\SouthAlive\obj\Debug\netcoreapp2.0\SouthAlive.AssemblyInfo.cs
+C:\Users\shivs\Desktop\SouthAliveFinal\SouthAlive\obj\Debug\netcoreapp2.0\SouthAlive.dll
+C:\Users\shivs\Desktop\SouthAliveFinal\SouthAlive\obj\Debug\netcoreapp2.0\SouthAlive.pdb

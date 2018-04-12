@@ -37,6 +37,8 @@ namespace SouthAlive.Controllers
             ViewBag.VenueBooking = _context.VenueBooking.ToList();
             return View(await _context.VenueBooking.ToListAsync());
         }
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Approve()
         {
             ViewBag.VenueTimesOptions = _context.VenueTimesOptions.ToList();
@@ -44,6 +46,8 @@ namespace SouthAlive.Controllers
             ViewBag.VenueBooking = _context.VenueBooking.ToList();
             return View(await _context.Venue.ToListAsync());
         }
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> ViewBookings(int id)
         {
             ViewBag.VenueTimesOptions = _context.VenueTimesOptions.ToList();
@@ -66,6 +70,7 @@ namespace SouthAlive.Controllers
             return View(await _context.Venue.ToListAsync());
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Add()
         {
             ViewBag.VenueTimesOptions = _context.VenueTimesOptions;
@@ -103,6 +108,10 @@ namespace SouthAlive.Controllers
         }
         public ActionResult GetForm(int day, int id, int month, int year)
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return (Redirect("/Venue/SigninRequest"));
+            }
             ViewBag.day = day;
             ViewBag.id = id;
             ViewBag.month = month;
@@ -127,6 +136,17 @@ namespace SouthAlive.Controllers
             return PartialView("_Calendar");
         }
 
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public IActionResult DeleteBooking(int id)
+        {
+            VenueBooking booking = _context.VenueBooking.Find(id);
+            _context.VenueBooking.Remove(booking);
+            _context.SaveChanges();
+            return (Redirect("/Venue"));
+        }
+
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> ConfirmBooking(int id)
         {
             VenueBooking book = _context.VenueBooking.Find(id);
@@ -139,7 +159,7 @@ namespace SouthAlive.Controllers
             return Redirect("/Venue");
         }
 
-        
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Remove(int id)
         {
             Venue venue = _context.Venue.Find(id);
@@ -148,6 +168,7 @@ namespace SouthAlive.Controllers
             return (Redirect("/Venue"));
         }
 
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> AddImages(int id, IFormFile[] Images)
         {
             
@@ -184,6 +205,11 @@ namespace SouthAlive.Controllers
         {
             ViewBag.ID = id;
             return View(await _context.Venue.SingleOrDefaultAsync(m => m.VenueId==id));
+        }
+
+        public IActionResult SigninRequest()
+        {
+            return PartialView();
         }
 
         public async Task<IActionResult> RequestBooking(int id, int day, int month, int year, TimeSpan startTime, TimeSpan endTime, string EventName,string description, string IsPublic, IFormFile[] Images, string venueName, string location)
